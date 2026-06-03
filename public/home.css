@@ -10,35 +10,33 @@
    OVERRIDES DE STARLIGHT para el splash page
    ══════════════════════════════════════════════════════════ */
 
-/* Ocultar el título H1 que Starlight inyecta en splash */
-:has(.home-wrapper) .hero,
-:has(.home-wrapper) .sl-markdown-content > h1,
-:has(.home-wrapper) .sl-markdown-content > p:first-of-type:empty {
-  display: none !important;
-}
+/* ── Ocultar TODO lo que Starlight inyecta en el splash ──────
+   home.css solo se carga en index.mdx, así que estos
+   selectores son seguros — no afectan otras páginas.       */
 
-/* Quitar todos los paddings/max-width del contenedor de Starlight */
-:has(.home-wrapper) .content-panel {
+/* H1 automático del title del frontmatter */
+.sl-markdown-content > h1,
+.content-panel > * > h1,
+article > h1,
+.hero { display: none !important; }
+
+/* Quitar padding y max-width del contenedor de contenido */
+.content-panel {
   padding: 0 !important;
   max-width: 100% !important;
 }
 
-:has(.home-wrapper) .sl-markdown-content {
+.sl-markdown-content {
   max-width: 100% !important;
   padding: 0 !important;
   margin: 0 !important;
 }
 
-:has(.home-wrapper) main,
-:has(.home-wrapper) .main-frame {
-  padding: 0 !important;
-  max-width: 100% !important;
-}
+/* Ocultar prev/next en el home */
+.pagination-links { display: none !important; }
 
-/* Ocultar la barra de paginación prev/next en el home */
-:has(.home-wrapper) .pagination-links {
-  display: none !important;
-}
+/* Right sidebar (TOC) no tiene sentido en el home */
+.right-sidebar { display: none !important; }
 
 /* ── Reset secciones del home ──────────────────────────────── */
 .home-wrapper {
@@ -67,7 +65,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 6rem 2rem 8rem;
+  /* padding-top absorbe el header fijo de Starlight (~3.5rem) + espacio visual */
+  padding: calc(var(--sl-nav-height, 3.5rem) + 4rem) 2rem 8rem;
   overflow: hidden;
   isolation: isolate;
 }
