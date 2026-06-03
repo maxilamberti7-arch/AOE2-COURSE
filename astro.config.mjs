@@ -6,10 +6,10 @@ import remarkGlossaryAutolink from './src/plugins/remark-glossary-autolink.mjs';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://maxilamberti7-arch.github.io',
-	base: '/aoe2-curso',
+	base: '/AOE2-COURSE',
 	markdown: {
 		remarkPlugins: [
-			[remarkGlossaryAutolink, { glosarioBase: '/aoe2-curso/recursos/glosario/' }],
+			[remarkGlossaryAutolink, { glosarioBase: '/AOE2-COURSE/recursos/glosario/' }],
 		],
 	},
 	integrations: [
@@ -26,13 +26,13 @@ export default defineConfig({
 				replacesTitle: false,
 			},
 			social: [
-				{ icon: 'github', label: 'GitHub', href: 'https://github.com/tuusuario/aoe2-curso' },
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/maxilamberti7-arch/AOE2-COURSE' },
 			],
 			customCss: ['./src/styles/custom.css'],
 			head: [
 				{
 					tag: 'script',
-					attrs: { src: '/aoe2-curso/aoe2-app.js', defer: true },
+					attrs: { src: '/AOE2-COURSE/aoe2-app.js', defer: true },
 				},
 			],
 			sidebar: [

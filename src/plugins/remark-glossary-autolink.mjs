@@ -75,7 +75,7 @@ function shouldSkipParent(parent) {
 }
 
 export default function remarkGlossaryAutolink(options = {}) {
-  const base = options.glosarioBase || '/aoe2-curso/recursos/glosario/';
+  const base = options.glosarioBase || '/AOE2-COURSE/recursos/glosario/';
 
   return function transformer(tree, file) {
     const glosario = loadGlosario();
