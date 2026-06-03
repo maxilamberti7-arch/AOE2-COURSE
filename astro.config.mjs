@@ -34,6 +34,10 @@ export default defineConfig({
 					tag: 'script',
 					attrs: { src: '/AOE2-COURSE/aoe2-app.js', defer: true },
 				},
+				{
+					tag: 'script',
+					attrs: { src: '/AOE2-COURSE/music-player.js', defer: true },
+				},
 			],
 			sidebar: [
 				{
