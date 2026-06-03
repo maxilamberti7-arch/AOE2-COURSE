@@ -6,6 +6,40 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
+/* ══════════════════════════════════════════════════════════
+   OVERRIDES DE STARLIGHT para el splash page
+   ══════════════════════════════════════════════════════════ */
+
+/* Ocultar el título H1 que Starlight inyecta en splash */
+:has(.home-wrapper) .hero,
+:has(.home-wrapper) .sl-markdown-content > h1,
+:has(.home-wrapper) .sl-markdown-content > p:first-of-type:empty {
+  display: none !important;
+}
+
+/* Quitar todos los paddings/max-width del contenedor de Starlight */
+:has(.home-wrapper) .content-panel {
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+
+:has(.home-wrapper) .sl-markdown-content {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+:has(.home-wrapper) main,
+:has(.home-wrapper) .main-frame {
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Ocultar la barra de paginación prev/next en el home */
+:has(.home-wrapper) .pagination-links {
+  display: none !important;
+}
+
 /* ── Reset secciones del home ──────────────────────────────── */
 .home-wrapper {
   --gold:          #d4a017;
@@ -84,16 +118,16 @@
 
 /* Logo / escudo SVG */
 .home-logo {
-  width: 88px;
-  height: 88px;
-  margin: 0 auto 2rem;
-  filter: drop-shadow(0 0 24px rgba(212, 160, 23, 0.4));
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 2.5rem;
+  filter: drop-shadow(0 0 30px rgba(212, 160, 23, 0.45));
   animation: logo-glow 3s ease-in-out infinite alternate;
 }
 
 @keyframes logo-glow {
-  from { filter: drop-shadow(0 0 16px rgba(212, 160, 23, 0.3)); }
-  to   { filter: drop-shadow(0 0 32px rgba(212, 160, 23, 0.6)); }
+  from { filter: drop-shadow(0 0 20px rgba(212, 160, 23, 0.3)); }
+  to   { filter: drop-shadow(0 0 45px rgba(212, 160, 23, 0.7)); }
 }
 
 /* Título principal */
