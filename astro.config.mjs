@@ -5,7 +5,7 @@ import remarkGlossaryAutolink from './src/plugins/remark-glossary-autolink.mjs';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://tuusuario.github.io',
+	site: 'https://maxilamberti7-arch.github.io',
 	base: '/aoe2-curso',
 	markdown: {
 		remarkPlugins: [
