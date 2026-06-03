@@ -1,0 +1,634 @@
+{
+  "drush": {
+    "termino": "Drush",
+    "categoria": "estrategia",
+    "definicionCorta": "Dark Age Rush. Atacar con 2–4 militia antes de subir a Feudal Age.",
+    "definicionLarga": "Estrategia agresiva que consiste en entrenar 2–4 militia en Dark Age (~22 pop) y enviarlos a hostigar al rival mientras se sube a Feudal con economía intacta. Ideal para frenar walls, matar villagers en recursos lejanos o presionar a una civ que hace FC sin defensa temprana. El drush clásico entrena 3 militia desde el Barracks, los manda al enemigo y sube a Feudal con el resto de la economía.",
+    "verTambien": ["maa", "fc", "flush"],
+    "videoLink": null
+  },
+  "fc": {
+    "termino": "FC",
+    "categoria": "estrategia",
+    "definicionCorta": "Fast Castle. Subir rápido a Castle Age sacrificando presión feudal.",
+    "definicionLarga": "El Fast Castle es una estrategia económica que prioriza llegar a Castle Age en ~17–19 min con mínima o nula presión en Feudal. La versión más común usa ~28–30 pop para el click-up. Una vez en Castle, el jugador construye un Castillo, produce Unique Units o caballería pesada y lanza un timing attack. Es la respuesta natural al archer rush o scout rush del rival.",
+    "verTambien": ["boom", "drush", "timing-attack"],
+    "videoLink": null
+  },
+  "maa": {
+    "termino": "MAA",
+    "categoria": "estrategia",
+    "definicionCorta": "Men-at-Arms. Milicia mejorada con +2 ataque y +1 armor, disponible en Feudal.",
+    "definicionLarga": "Men-at-Arms es la mejora de la Militia disponible al subir a Feudal Age. Cuesta 200f/100g en Blacksmith y tarda ~60s. Con 7 de ataque base pueden matar villagers en 2 golpes y destruir edificios rápido. Usado en el 'MAA into archers' build: se manda los MAA a presionar mientras se produce archers en Feudal.",
+    "verTambien": ["drush", "archer-rush", "flush"],
+    "videoLink": null
+  },
+  "scouts-opening": {
+    "termino": "Scouts Opening",
+    "categoria": "estrategia",
+    "definicionCorta": "Build order que sube a Feudal con Stable y produce scouts para presionar.",
+    "definicionLarga": "El opening de scouts es el build order más popular en Arabia. Sube a Feudal Age con ~21–22 pop, construye un Stable apenas llega a Feudal, y produce scouts para hostigar al rival. Los scouts tienen mucho HP y velocidad, ideales para matar villagers y cortar la economía. La variante '21 pop scouts' es la más estándar: 6 madereros, 4 mineros de oro, el resto en comida, click-up a ~800f.",
+    "verTambien": ["flush", "fc", "scouting"],
+    "videoLink": null
+  },
+  "archer-rush": {
+    "termino": "Archer Rush",
+    "categoria": "estrategia",
+    "definicionCorta": "Presión agresiva con arqueros en Feudal Age desde 2+ Archery Ranges.",
+    "definicionLarga": "Build order ofensivo que sube a Feudal con ~22 pop y produce archers desde 2 Archery Ranges tan rápido como sea posible (~7:30–8:30 min). El objetivo es abrumar al rival con volumen de fuego antes de que pueda wallear o producir skirms como counter. Muy efectivo en Arabia contra civs sin buen eco temprano. Las Britons, Ethiopians y Mayans son las mejores civs para este build.",
+    "verTambien": ["flush", "skirm", "maa"],
+    "videoLink": null
+  },
+  "tower-rush": {
+    "termino": "Tower Rush",
+    "categoria": "estrategia",
+    "definicionCorta": "Construir torres en los recursos del enemigo para bloquear su economía.",
+    "definicionLarga": "Estrategia que consiste en mandar 4–6 villagers al lado del rival en Dark Age o inicio de Feudal para construir Watch Towers en sus fuentes de recursos (especialmente madera o comida). La torre inflige daño, bloquea el trabajo de los villagers y fuerza al rival a gastar recursos para demolerla. Koreans, Incas y Byzantines son civs fuertes para tower rush por sus bonuses defensivos.",
+    "verTambien": ["flush", "drush"],
+    "videoLink": null
+  },
+  "krush": {
+    "termino": "Krush",
+    "categoria": "estrategia",
+    "definicionCorta": "Knight Rush. Presión en Castle Age con caballeros desde 2+ Stables.",
+    "definicionLarga": "El Knight Rush (abreviado K-rush o Krush) es el timing attack más clásico de Castle Age. Se produce de 2 Stables, a veces 3, y se manda la caballería a la economía rival tan pronto como se llega a Castle Age. Los Knights tienen 100 HP y 10+2 de ataque, matan villagers en 2 golpes. El counter son los pikes/halberdiers o camellos. Civs estrella: Franks, Persians, Lithuanians.",
+    "verTambien": ["knight", "paladin", "timing-attack"],
+    "videoLink": null
+  },
+  "douche": {
+    "termino": "Douche",
+    "categoria": "estrategia",
+    "definicionCorta": "Enviar villagers en Dark Age a destruir el TC del rival con lanzas de fuego.",
+    "definicionLarga": "El 'douche' es una estrategia de Early Dark Age donde se mandan todos los villagers hacia el Town Center rival para atacarlo con antorchas (villagers infligen daño de fuego a edificios). Si el TC rival no tiene garrison ni defensa inmediata, puede caer en ~2 min. Es considerado una táctica extrema o de trolling en partidas informales, pero válida en formatos como diplomacy o ciertas configuraciones. No es viable en alta competición porque el tiempo de viaje deja tu propia eco sin producción.",
+    "verTambien": ["tower-rush"],
+    "videoLink": null
+  },
+  "flush": {
+    "termino": "Flush",
+    "categoria": "estrategia",
+    "definicionCorta": "Presión agresiva en Feudal Age, genérico para scouts rush o archer rush.",
+    "definicionLarga": "Término genérico para cualquier ataque agresivo en Feudal Age, especialmente con scouts o arqueros. Hacer un 'flush' implica comprometer recursos en unidades militares feudales para presionar al rival antes de que pueda consolidar su economía o wallear. El flush bien ejecutado obliga al rival a reaccionar defensivamente, comprando tiempo y ventaja económica al atacante.",
+    "verTambien": ["scouts-opening", "archer-rush", "drush"],
+    "videoLink": null
+  },
+  "boom": {
+    "termino": "Boom",
+    "categoria": "estrategia",
+    "definicionCorta": "Expansión económica masiva: múltiples TCs produciendo villagers sin parar.",
+    "definicionLarga": "El 'boom' es la estrategia de maximizar la economía construyendo 3–5 Town Centers en Castle Age y produciendo villagers sin interrupción. El objetivo es tener tanta superioridad económica que el ejército resultante aplaste al rival en Imperial Age o tarde Castle. Es la respuesta al FC. Las Civs ideales para boom son Chinese (TC extra gratis al inicio), Vikings (eco bonuses), Malay (aging up barato) y Poles.",
+    "verTambien": ["fc", "tc-boom", "idle-tc"],
+    "videoLink": null
+  },
+  "smush": {
+    "termino": "Smush",
+    "categoria": "estrategia",
+    "definicionCorta": "Explotar el límite de población destruyendo las casas del rival con trebuchets.",
+    "definicionLarga": "Técnica de late game donde se usan trebuchets o trabucos para destruir las casas (Houses) del rival, reduciéndolo a cero de headroom en el cap de población. Sin capacidad de producir más unidades, el ejército existente no puede reemplazarse y la partida se inclina decisivamente. Requiere superioridad en asedio y control del mapa para ejecutar con éxito.",
+    "verTambien": ["onager", "timing-attack"],
+    "videoLink": null
+  },
+  "push": {
+    "termino": "Push",
+    "categoria": "estrategia",
+    "definicionCorta": "Avanzar militarmente hacia la base rival con masa crítica de unidades.",
+    "definicionLarga": "Un 'push' es cualquier movimiento ofensivo organizado con suficientes unidades para hacer daño real. A diferencia del raid (rápido y económico), el push tiene como objetivo destruir edificios, matar ejército rival o tomar control del mapa. Un push tardío en Imperial puede incluir trebuchets + unidades de protección. Timing: los pushes más impactantes ocurren justo al llegar a Castle o Imperial antes de que el rival esté preparado.",
+    "verTambien": ["raid", "timing-attack", "timing"],
+    "videoLink": null
+  },
+  "all-in": {
+    "termino": "All-In",
+    "categoria": "estrategia",
+    "definicionCorta": "Apostar todo en un ataque: si falla, la economía no se recupera.",
+    "definicionLarga": "Estrategia donde se invierten todos los recursos disponibles en un ataque masivo con la expectativa de que terminará la partida. Si el all-in falla y el rival lo defiende, el atacante queda en desventaja económica grave. Ejemplos: Aztec forward castle all-in, Mongol flush con mangonels, mam knight flood. Alto riesgo, alta recompensa.",
+    "verTambien": ["timing-attack", "push", "boom"],
+    "videoLink": null
+  },
+  "eco-boom": {
+    "termino": "Eco-Boom",
+    "categoria": "estrategia",
+    "definicionCorta": "Boom económico puro: priorizar villagers sobre todo lo demás.",
+    "definicionLarga": "Variante del boom donde se sacrifica casi toda presión militar para maximizar el número de villagers y TCs. El jugador apuesta a que su rival no puede terminar la partida antes de que el eco-boom genere suficiente ventaja de recursos. Muy riesgoso en 1v1 Arabia pero devastador en Team Games donde un aliado puede defender.",
+    "verTambien": ["boom", "tc-boom", "villager-count"],
+    "videoLink": null
+  },
+  "fast-imp": {
+    "termino": "Fast Imp",
+    "categoria": "estrategia",
+    "definicionCorta": "Fast Imperial: subir a Imperial Age más rápido que el ritmo normal.",
+    "definicionLarga": "Estrategia de llegar a Imperial Age antes del tiempo típico (~30–35 min) para ganar acceso a Unique Technologies, upgrades de Imperial y unidades como Paladin o Siege Onager. El fast imp generalmente sacrifica tamaño de ejército en Castle Age. Turks son la civ canónica para fast imp gracias a su +50% velocidad de tecnologías en Blacksmith/University.",
+    "verTambien": ["fc", "boom", "timing-attack"],
+    "videoLink": null
+  },
+  "villager-count": {
+    "termino": "Villager Count",
+    "categoria": "economia",
+    "definicionCorta": "Cantidad total de villagers producidos — métrica central del juego.",
+    "definicionLarga": "El número de villagers es la métrica económica más importante en AoE2. Un benchmark estándar: ~21 villagers al llegar a Feudal (~10 min), ~40+ al llegar a Castle. Jugadores de alto nivel tienen 80–100 villagers en Castle Age tardío. Idle TC (TC sin producir) es el peor error económico porque cada segundo sin villager es economía perdida para siempre.",
+    "verTambien": ["idle-tc", "tc-boom", "boom"],
+    "videoLink": null
+  },
+  "idle-tc": {
+    "termino": "Idle TC",
+    "categoria": "economia",
+    "definicionCorta": "Town Center sin producir villagers — tiempo perdido de economía.",
+    "definicionLarga": "El TC idle time es la cantidad de tiempo que el Town Center pasa sin producir villagers. Es el error económico más costoso en AoE2 porque cada segundo sin producir es un villager menos, y eso se compone con el tiempo. CaptureAge muestra esta métrica en replays. Objetivo: TC idle time < 30 segundos por partida. La causa más común es olvidar poner los aldeanos en cola al llegar a una nueva edad.",
+    "verTambien": ["villager-count", "tc-boom"],
+    "videoLink": null
+  },
+  "wood-line": {
+    "termino": "Wood Line",
+    "categoria": "economia",
+    "definicionCorta": "Línea de árboles donde se asignan madereros, idealmente cerca del TC.",
+    "definicionLarga": "La 'wood line' es el grupo de árboles donde se mandan los primeros villagers a cortar madera. La posición es crucial: debe estar cerca del TC o de un Lumber Camp para minimizar el tiempo de viaje (walk time). En Dark Age, se busca la línea de madera más cercana y se construye un Lumber Camp en el borde del bosque. En Arabia, la posición de la wood line determina en parte si se puede wallear eficientemente.",
+    "verTambien": ["dark-age-eco", "dropoff"],
+    "videoLink": null
+  },
+  "gold-line": {
+    "termino": "Gold Line",
+    "categoria": "economia",
+    "definicionCorta": "Fuente de oro donde se ubican los mineros con Mining Camp.",
+    "definicionLarga": "Las venas de oro son el recurso más escaso en partidas largas. En Dark Age, se mandan 3–4 villagers al oro más cercano y se construye un Mining Camp. En late game, cuando el oro propio se agota, hay que buscar gold en el mapa (relics, tribute, market) o pilar el gold del rival. El manejo del gold en Imperial es lo que separa a jugadores intermedios de avanzados.",
+    "verTambien": ["market-flip", "stone-line"],
+    "videoLink": null
+  },
+  "stone-line": {
+    "termino": "Stone Line",
+    "categoria": "economia",
+    "definicionCorta": "Fuente de piedra para castillos y torres.",
+    "definicionLarga": "La piedra es el recurso más escaso del juego. Se usa principalmente para construir Castles (650 stone), Town Centers adicionales (275 stone) y Stone Walls. En la mayoría de builds de Arabia no se mina stone hasta Castle Age. En Arena y mapas de boom, la stone es prioritaria para el Castillo. La piedra se agota rápido y no es renovable, por lo que su gestión en late game es crítica.",
+    "verTambien": ["tc-boom", "gold-line"],
+    "videoLink": null
+  },
+  "tc-boom": {
+    "termino": "TC Boom",
+    "categoria": "economia",
+    "definicionCorta": "Construir múltiples Town Centers para producir villagers más rápido.",
+    "definicionLarga": "El TC Boom consiste en construir 3–5 Town Centers en Castle Age para multiplicar la producción de villagers. Cada TC produce 1 villager cada 25 segundos, así que 4 TCs = 4 villagers cada 25s vs 1 del rival. Requiere 275 stone por TC adicional y mucha comida para mantenerlos ocupados. Civs con bonus de eco o TCs baratos (Chinese, Incas, Malay) lo ejecutan mejor.",
+    "verTambien": ["boom", "idle-tc", "villager-count"],
+    "videoLink": null
+  },
+  "market-flip": {
+    "termino": "Market Flip",
+    "categoria": "economia",
+    "definicionCorta": "Vender y comprar recursos en el Market para convertir excesos en faltantes.",
+    "definicionLarga": "El 'market flip' es usar el Market para convertir recursos sobrantes (generalmente madera o food) en el recurso escaso (oro en late game). Cada transacción tiene un spread del 30% pero mejora con uso. En late game sin oro, el Market es la única fuente de oro además de Relics y Tribute. Saracens tienen el mejor Market del juego (compran/venden con 5% fee vs 30% estándar).",
+    "verTambien": ["gold-line", "stone-line"],
+    "videoLink": null
+  },
+  "food-float": {
+    "termino": "Food Float",
+    "categoria": "economia",
+    "definicionCorta": "Acumular comida sin gastarla, lo que indica ineficiencia económica.",
+    "definicionLarga": "Un 'food float' ocurre cuando se acumula demasiada comida sin gastarla (por ejemplo, 1000+ food en Castle Age). Indica que el TC está idle, no se están entrenando units o hay un bottleneck. La comida debe circular constantemente: recolectar → gastar en villagers o unidades militares. Ver 800+ food estancada más de 30s es señal de que algo no está funcionando.",
+    "verTambien": ["idle-tc", "villager-count"],
+    "videoLink": null
+  },
+  "loom-timing": {
+    "termino": "Loom Timing",
+    "categoria": "economia",
+    "definicionCorta": "Cuándo investigar Loom (la tech de +15 HP / +2 armor para villagers).",
+    "definicionLarga": "Loom es la única tecnología disponible en Dark Age además del aging up. Cuesta 50 gold y tarda ~25 segundos, durante los cuales el TC no produce. En builds sin rush, se investiga Loom justo antes de atraer el primer jabalí (boar) porque los villagers pueden morir si el boar no está bien controlado. En builds agresivos (drush, tower rush) se puede saltear para mantener producción de villagers continua.",
+    "verTambien": ["lure-boar", "dark-age-eco"],
+    "videoLink": null
+  },
+  "dark-age-eco": {
+    "termino": "Dark Age Eco",
+    "categoria": "economia",
+    "definicionCorta": "La economía en los primeros ~10 minutos antes de subir a Feudal.",
+    "definicionLarga": "La economía en Dark Age establece la base de toda la partida. Los primeros villagers van: 4 a comida (sheep/deer), 4 a madera, luego según el build. El orden correcto de construcción (Lumber Camp, Mill, Mining Camp) y la gestión de los jabalíes (lure boar) determinan cuántos recursos llegan a Feudal. Un Dark Age eficiente llega a Feudal con 400–500 food acumulada para subir de edad.",
+    "verTambien": ["villager-count", "lure-boar", "loom-timing"],
+    "videoLink": null
+  },
+  "micro": {
+    "termino": "Micro",
+    "categoria": "militar",
+    "definicionCorta": "Micromanagement: control preciso de unidades individuales en combate.",
+    "definicionLarga": "El 'micro' se refiere a mover y dirigir unidades individuales durante el combate para maximizar el daño infligido y minimizar el recibido. Ejemplos: mover arqueros heridos al back, usar kiting con archers para mantener distancia de melee, snipear villagers con scouts. Un buen micro puede ganar combates con inferioridad numérica. El micro de mangoneles (mover para evitar ser contrarados) es especialmente importante.",
+    "verTambien": ["kiting", "surround", "macro"],
+    "videoLink": null
+  },
+  "macro": {
+    "termino": "Macro",
+    "categoria": "militar",
+    "definicionCorta": "Macromanagement: gestión económica y producción en paralelo al combate.",
+    "definicionLarga": "El 'macro' es la habilidad de mantener la economía y la producción de unidades mientras se pelea. Un jugador con buen macro nunca para de producir villagers ni de construir edificios militares, incluso en medio de un ataque. La diferencia entre 1200 y 1500 ELO suele ser el macro: el jugador avanzado mantiene 3 Barracks produciendo mientras defiende. CaptureAge muestra el % de idle time de edificios como métrica de macro.",
+    "verTambien": ["micro", "idle-tc", "villager-count"],
+    "videoLink": null
+  },
+  "kiting": {
+    "termino": "Kiting",
+    "categoria": "militar",
+    "definicionCorta": "Mover arqueros hacia atrás mientras disparan para evitar contacto melee.",
+    "definicionLarga": "El kiting es una técnica de micro donde se dan órdenes de ataque y luego de retroceder para mantener a las unidades de rango fuera del alcance melee. Con archers, se hace 'click attack → click back → click attack' en ciclos rápidos. Bien ejecutado, los arqueros pueden matar unidades melee sin recibir daño. Es la diferencia entre archers normales y el archer micro de jugadores de 1600+ ELO.",
+    "verTambien": ["micro", "surround", "archer-rush"],
+    "videoLink": null
+  },
+  "surround": {
+    "termino": "Surround",
+    "categoria": "militar",
+    "definicionCorta": "Rodear unidades enemigas con melee para bloquear su escape y maximizar DPS.",
+    "definicionLarga": "El surround es la técnica de envolver unidades enemigas con unidades melee para que no puedan escapar y reciban daño de múltiples lados. Especialmente efectivo contra arqueros (si los rodeás no pueden kitear) o contra archers blobbeados. La forma de ejecutarlo es atacar en arco: parte del ejército ataca de frente, parte flanquea. Los Mongols y Franks son especialmente buenos por velocidad de sus unidades.",
+    "verTambien": ["micro", "kiting", "raid"],
+    "videoLink": null
+  },
+  "snipe": {
+    "termino": "Snipe",
+    "categoria": "militar",
+    "definicionCorta": "Matar una unidad o villager clave específico del oponente.",
+    "definicionLarga": "Un 'snipe' es dirigir toda la atención a eliminar una unidad de alto valor: el villager en el boar, el mango de Stone Away del rival, el monje que está convirtiendo tu paladin, o la única unidad de caballería que está raideando tu eco. El snipe requiere priorización consciente de objetivos y buen micro. En el timing attack, snipear la producción de villagers del TC rival es una forma de 'eco snipe'.",
+    "verTambien": ["micro", "raid", "surround"],
+    "videoLink": null
+  },
+  "raze": {
+    "termino": "Raze",
+    "categoria": "militar",
+    "definicionCorta": "Destruir edificios (farms, buildings) en la base rival.",
+    "definicionLarga": "Razear se refiere a destruir edificios económicos o militares del rival: farms, Lumber Camps, Barracks, TCs adicionales. Diferente al 'raid' (que mata villagers), el raze apunta a edificios. Razear las farms del rival lo obliga a reconstruirlas (80 wood cada una), un costo significant en mid-game. Los mangoneles y trebuchets son las mejores unidades para razear.",
+    "verTambien": ["raid", "push", "smush"],
+    "videoLink": null
+  },
+  "raid": {
+    "termino": "Raid",
+    "categoria": "militar",
+    "definicionCorta": "Ataque rápido y económico para matar villagers o cortarle recursos al rival.",
+    "definicionLarga": "Un 'raid' es un ataque de alta movilidad diseñado para matar villagers y obligar al rival a gastar atención y recursos defensivos. La caballería (knights, scout cavalry) es la unidad de raid por excelencia por su velocidad. Un raid efectivo mata 3–5 villagers o interrumpe 3+ minutos de trabajo, lo que es un daño económico comparable a un timing attack. En Arabia, el raiding constante es parte del juego de alto nivel.",
+    "verTambien": ["snipe", "micro", "krush"],
+    "videoLink": null
+  },
+  "deer-push": {
+    "termino": "Deer Push",
+    "categoria": "militar",
+    "definicionCorta": "Empujar ciervos del mapa hacia el TC del enemigo para 'robarle' comida.",
+    "definicionLarga": "Los ciervos se pueden matar cerca del TC para aprovechar la comida. La técnica de 'deer push' consiste en usar un scout o villager para alejar ciervos que están cerca del TC rival y empujarlos hacia el propio. De esta forma, los ciervos del rival (que normalmente le darían ~150 food cada uno) caen en la propia zona, mejorando la eco early. Es una ventaja pequeña pero acumulable. No confundir con el standard scouting.",
+    "verTambien": ["lure-boar", "dark-age-eco", "scouting"],
+    "videoLink": null
+  },
+  "lure-boar": {
+    "termino": "Lure Boar",
+    "categoria": "militar",
+    "definicionCorta": "Atraer un jabalí al área del TC para matarlo y cosechar su comida.",
+    "definicionLarga": "Los jabalíes (Boars) dan 340 food cada uno y son la fuente de comida más eficiente en Dark Age. Para 'lurearlos', se ataca el boar con un villager y se corre hacia el TC para que los demás villagers lo maten en rango del TC. Hay que tener cuidado: si el boar tiene mucha vida y se aleja demasiado, puede matar al villager. Con Loom investigado, el villager aguanta más daño. Se pueden lurear 2 boars en la mayoría de los mapas.",
+    "verTambien": ["dark-age-eco", "loom-timing", "deer-push"],
+    "videoLink": null
+  },
+  "dropoff": {
+    "termino": "Dropoff",
+    "categoria": "militar",
+    "definicionCorta": "El punto donde los villagers depositan recursos (TC, Lumber/Mining Camp, Mill).",
+    "definicionLarga": "El 'dropoff' es el edificio donde los villagers llevan los recursos recolectados. Optimizar los dropoffs es crucial: cuanto más lejos esté el dropoff de la fuente de recursos, más tiempo pierde el villager caminando. La regla de oro: siempre construir un Lumber Camp o Mining Camp lo más cerca posible de los recursos. En late game, cuando los recursos se agotan, construir nuevos dropoffs es parte del macro eficiente.",
+    "verTambien": ["wood-line", "gold-line", "dark-age-eco"],
+    "videoLink": null
+  },
+  "garrison": {
+    "termino": "Garrison",
+    "categoria": "militar",
+    "definicionCorta": "Meter unidades dentro de edificios para protegerlas o curarlas.",
+    "definicionLarga": "El garrison es la acción de meter unidades dentro de edificios (TC, Towers, Castles, Stables, etc.). Los villagers garrisonados en el TC disparan flechas extra (1 flecha por villager hasta cap). Garrisionear villagers durante un ataque de scouts los protege y permite contraatacar con flechas del TC. Los monjes garrisonados en Monasteries se curan con tiempo. En asedios, garrisionar arqueros en torres aumenta su alcance.",
+    "verTambien": ["ungarrison", "micro"],
+    "videoLink": null
+  },
+  "ungarrison": {
+    "termino": "Ungarrison",
+    "categoria": "militar",
+    "definicionCorta": "Sacar unidades de un edificio donde estaban garrisonadas.",
+    "definicionLarga": "El 'ungarrison' es soltar las unidades que estaban dentro de un edificio. El error común es olvidar sacar los villagers del TC después de defenderse de un ataque: quedan garrisonados, el TC no produce, y la economía se detiene. También hay que acordarse de ungarrisionear los mangoneles de las torres después de usarlos. La tecla de ungarrison está en el panel inferior del edificio seleccionado.",
+    "verTambien": ["garrison", "idle-tc"],
+    "videoLink": null
+  },
+  "formation": {
+    "termino": "Formation",
+    "categoria": "militar",
+    "definicionCorta": "Configuración de movimiento del ejército (box, line, spread).",
+    "definicionLarga": "Las formaciones controlan cómo se mueven las unidades en grupo. Las más importantes: 'No Formation' (cada unidad va directa, útil para micro individual), 'Box' (unidades melee protegen a las de rango, útil para proteger mangoneles), 'Spread' (desplegadas, reduce daño de area de mangoneles). Para evitar que tus arqueros sean arrasados por un mango, usar spread. Por defecto, el juego usa 'Line'.",
+    "verTambien": ["micro", "surround", "mango"],
+    "videoLink": null
+  },
+  "patrol": {
+    "termino": "Patrol",
+    "categoria": "militar",
+    "definicionCorta": "Orden que hace que las unidades ataquen automáticamente al moverse entre dos puntos.",
+    "definicionLarga": "La orden de 'patrol' hace que las unidades se muevan en un camino fijo y ataquen automáticamente cualquier enemigo dentro de su rango de visión. En lugar de 'attack move' (que puede llevar al ejército hacia el TC rival con garrison), el patrol permite una presión más controlada. También se usa para hacer scouting automático: poner el scout en patrol en un perímetro del mapa.",
+    "verTambien": ["micro", "scouting", "raid"],
+    "videoLink": null
+  },
+  "skirm": {
+    "termino": "Skirm",
+    "categoria": "unidad",
+    "definicionCorta": "Skirmisher. Counter barato de arqueros, disponible en Feudal.",
+    "definicionLarga": "El Skirmisher (Skirm) es la unidad anti-arquero por excelencia. Cuesta solo 25 food + 35 wood, tiene +3 vs archer y resistencia al daño de flecha (4 pierce armor). Aunque hace poco daño a otras unidades, es extremadamente cost-efficient contra archers. En Feudal, vs archer rush, producir skirms es la respuesta estándar. La Elite Skirmisher (disponible en Castle) es la versión mejorada.",
+    "verTambien": ["archer-rush", "xbow", "arb"],
+    "videoLink": null
+  },
+  "xbow": {
+    "termino": "Xbow",
+    "categoria": "unidad",
+    "definicionCorta": "Crossbowman. Mejora del archer disponible en Castle Age.",
+    "definicionLarga": "El Crossbowman (Xbow) es la primera mejora del Archer en Castle Age. Tiene +1 de ataque y +1 de rango (máx 6) comparado con el archer. Es la columna vertebral de la mayoría de composiciones de arqueros en Castle Age. La transición de archers a xbows a los ~18–20 min es una de las mejoras más importantes en ese período del juego. Cuesta 125f/75g de research en Archery Range.",
+    "verTambien": ["arb", "skirm", "archer-rush"],
+    "videoLink": null
+  },
+  "arb": {
+    "termino": "Arb",
+    "categoria": "unidad",
+    "definicionCorta": "Arbalest. Mejora final del archer en Imperial Age.",
+    "definicionLarga": "El Arbalest (Arb) es la mejora final del archer tree, disponible en Imperial Age. Tiene +1 de ataque más (total 6), el máximo range con Bracer (8), y mayor RoF. Un blob de 40 Arbalests con todos los upgrades es uno de los ejércitos más devastadores del juego. Las civs especializadas en archers (Britons, Mayans, Ethiopians, Chinese) son las más fuertes con Arbalests.",
+    "verTambien": ["xbow", "skirm", "archer-rush"],
+    "videoLink": null
+  },
+  "mango": {
+    "termino": "Mango",
+    "categoria": "unidad",
+    "definicionCorta": "Mangonel. Catapulta de área, la mejor contra arqueros blobbeados.",
+    "definicionLarga": "El Mangonel (Mango) es la unidad de asedio de área más usada en Castle Age. Lanza proyectiles que dañan a TODAS las unidades en el área de impacto, incluyendo las propias. Es devastador contra ejércitos apilados (blobbeados), especialmente archers. El counter es la caballería (llegan rápido antes de que dispare) o dispersar las unidades (spread). El Onager y Siege Onager son las versiones mejoradas.",
+    "verTambien": ["onager", "scorp", "formation"],
+    "videoLink": null
+  },
+  "onager": {
+    "termino": "Onager",
+    "categoria": "unidad",
+    "definicionCorta": "Mejora del Mangonel. Mayor daño de área y puede dañar árboles.",
+    "definicionLarga": "El Onager es la mejora del Mangonel disponible en Imperial Age (castillo requiere el tech). Tiene mayor radio de splash y puede literalmente cortar árboles del bosque para crear aperturas en las paredes o revelar posiciones enemigas. El Siege Onager (mejora final) tiene splash +4 y se convierte en una de las unidades más poderosas del juego en combinación con caballería. Celts son la civ clásica por el movimiento extra de asedio.",
+    "verTambien": ["mango", "scorp", "smush"],
+    "videoLink": null
+  },
+  "scorp": {
+    "termino": "Scorp",
+    "categoria": "unidad",
+    "definicionCorta": "Scorpion. Ballista que penetra filas de unidades, ideal vs infantería.",
+    "definicionLarga": "El Scorpion (Scorp) dispara un proyectil que atraviesa múltiples unidades en línea, haciendo daño a todas las que penetra. A diferencia del mango (área redonda), el scorp es lineal pero puede matar filas enteras de halberdiers o infantería. Con Heavy Scorpion (upgrade Imperial) y 40 unidades, puede ser devastador contra infantería blobbeada. Las Ethiopians (bonus de fuego para ballistas) y Khmer son civs fuertes con scorps.",
+    "verTambien": ["mango", "onager", "halb"],
+    "videoLink": null
+  },
+  "ca": {
+    "termino": "CA",
+    "categoria": "unidad",
+    "definicionCorta": "Cavalry Archer. Unidad de rango a caballo, alta movilidad.",
+    "definicionLarga": "El Cavalry Archer (CA) combina la movilidad de la caballería con el ataque a distancia. Son más caros que los archers normales (40f + 60g) pero su velocidad les permite kitear en movimiento y evitar combate desfavorable. Las mejores civs para CA son Mongols (fire rate bonus), Huns (CA producen en Stable, bonus de rango), y Cumans. En Imperial como HCA (Heavy Cavalry Archer) se vuelven devastadores.",
+    "verTambien": ["hca", "kiting", "micro"],
+    "videoLink": null
+  },
+  "hca": {
+    "termino": "HCA",
+    "categoria": "unidad",
+    "definicionCorta": "Heavy Cavalry Archer. Upgrade Imperial del CA, +1 ataque y +1 pierce armor.",
+    "definicionLarga": "El Heavy Cavalry Archer es la mejora final del Cavalry Archer en Imperial Age. Requiere Cavalry Archer + Heavy Cavalry Archer en el Archery Range. Con Bracer (Bracer da +1 ataque y rango) y Thumb Ring (100% accuracy), el HCA es una unidad tier S para micro de alto nivel. Mongols con el 25% bonus de fire rate producen HCA que disparan casi como ametralladoras.",
+    "verTambien": ["ca", "kiting", "mongols"],
+    "videoLink": null
+  },
+  "knight": {
+    "termino": "Knight",
+    "categoria": "unidad",
+    "definicionCorta": "Caballero. La unidad de caballería estándar de Castle Age, 100 HP, 10+2 ataque.",
+    "definicionLarga": "El Knight es la unidad ofensiva por excelencia en Castle Age. Con 100 HP, 10+2 de ataque y 2+2 armor, es extremadamente durable para el costo (60f + 75g). En 2 golpes mata la mayoría de los villagers. La producción desde 2 Stables permite mantener presión constante. El counter son los Halberdiers, Camellos y Monks. Franks producen los Knights más fuertes del juego.",
+    "verTambien": ["paladin", "halb", "krush"],
+    "videoLink": null
+  },
+  "cav": {
+    "termino": "Cav",
+    "categoria": "unidad",
+    "definicionCorta": "Abreviatura genérica de caballería (Knights, Cavalry Archers, Scout Cavalry).",
+    "definicionLarga": "Término genérico para cualquier unidad del tipo cavalry en el juego. Incluye Scout Cavalry, Knight, Cavalry Archer y sus mejoras. La caballería tiene el bonus de movilidad y en general es débil vs Halberdiers y Camels (anti-cav bonus). El árbol de upgrades incluye: Forging → Iron Casting → Blast Furnace (ataque), Scale Barding Armor → Mail Barding Armor → Plate Barding Armor (defensa), Bloodlines (+20 HP), Husbandry (+10% velocidad).",
+    "verTambien": ["knight", "paladin", "halb"],
+    "videoLink": null
+  },
+  "paladin": {
+    "termino": "Paladin",
+    "categoria": "unidad",
+    "definicionCorta": "Upgrade final del Knight en Imperial Age. 160 HP, 12+4 ataque, la unidad más cara del juego.",
+    "definicionLarga": "El Paladin es la cúspide del árbol de caballería pesada. Disponible solo en Imperial Age (cuesta 1300f/750g de research en Castle). Con 160 HP, 12+4 de ataque y 2+4 de armor, es la unidad más poderosa stat-por-stat del juego. El counter siguen siendo los Halberdiers (cuesta solo 35f+25g vs 80f+75g del Paladin). Civs que acceden a Paladin: Franks, Persians, Lithuanians, Teutons, Burgundians.",
+    "verTambien": ["knight", "halb", "krush"],
+    "videoLink": null
+  },
+  "halb": {
+    "termino": "Halb",
+    "categoria": "unidad",
+    "definicionCorta": "Halberdier. Infantería anti-caballería barata, +32 bonus vs cav.",
+    "definicionLarga": "El Halberdier es la mejora del Pikeman en Imperial Age. Con solo 35f+25g tiene +32 de bonus vs cavalry, lo que lo hace el counter definitivo de knights y paladins. Un solo Halberdier puede matar un Knight en 6–7 golpes. En masas de 20–30 halbs vs una masa de knights, los halbs ganan cost-efficiently. El problema es que son lentos (0.9 velocidad) y mueren fácil contra archers.",
+    "verTambien": ["pike", "knight", "paladin"],
+    "videoLink": null
+  },
+  "pike": {
+    "termino": "Pike",
+    "categoria": "unidad",
+    "definicionCorta": "Pikeman. Mejora de la Spearman, counter de caballería en Castle Age.",
+    "definicionLarga": "El Pikeman es la mejora de la Spearman disponible en Castle Age. Tiene +18 bonus vs cavalry (vs +15 del Spearman). Es el counter estándar de knights en Castle Age antes de tener access al Halberdier. Cuesta 60f+45g de research. Con Squires (velocidad +10%), los pikes pueden alcanzar a la caballería que intenta escapar. No tienen bonus vs camels a diferencia del Halberdier.",
+    "verTambien": ["halb", "knight", "cav"],
+    "videoLink": null
+  },
+  "eagle": {
+    "termino": "Eagle",
+    "categoria": "unidad",
+    "definicionCorta": "Eagle Warrior. Unidad exclusiva de civs mesoamericanas, anti-caballería rápida.",
+    "definicionLarga": "El Eagle Warrior (Eagle) es la unidad de caballería 'simulada' de Aztecs, Mayans e Incas. No es técnicamente caballería (no recibe bonus de halberdiers) pero tiene velocidad alta y +8 bonus vs monks, +4 vs Unique Units y +3 vs infantry. Con el upgrade a Elite Eagle Warrior en Castle y Champion Eagle en Imperial, se convierte en una de las unidades más versátiles del juego. Aztecs con full upgrades tienen los Eagles más fuertes.",
+    "verTambien": ["micro", "aztecs", "mayans"],
+    "videoLink": null
+  },
+  "arabia": {
+    "termino": "Arabia",
+    "categoria": "mapa",
+    "definicionCorta": "El mapa más jugado en 1v1 RM. Abierto, sin paredes naturales, full agresivo.",
+    "definicionLarga": "Arabia es el mapa estándar de AoE2 competitivo. Es un mapa abierto con poca cobertura, lo que fuerza el walling temprano y la presión constante. Los recursos están relativamente equilibrados. El meta en Arabia es scout rush o archer rush, con FC como respuesta alternativa. No hay 'safe' por default — hay que wallear activamente. Las civs top en Arabia son Franks, Mayans, Mongols, Malians.",
+    "verTambien": ["arena", "nomad", "flush"],
+    "videoLink": null
+  },
+  "arena": {
+    "termino": "Arena",
+    "categoria": "mapa",
+    "definicionCorta": "Mapa con paredes de piedra alrededor de cada jugador. Meta: FC + boom.",
+    "definicionLarga": "Arena es el mapa más popular después de Arabia. Cada jugador empieza con paredes de piedra que protegen su base por completo, eliminando el flush temprano. El meta es 100% FC into Unique Units o boom. Las civs más fuertes son las que tienen Unique Units poderosas (Aztecs, Koreans, Teutons, Ethiopians). No hay presión feudal posible a menos que el rival no wallee las aberturas, lo cual es un error grande.",
+    "verTambien": ["fc", "boom", "arabia"],
+    "videoLink": null
+  },
+  "black-forest": {
+    "termino": "Black Forest",
+    "categoria": "mapa",
+    "definicionCorta": "Mapa de bosques densos con un único corredor de entrada. Meta defensivo.",
+    "definicionLarga": "Black Forest es el mapa más defensivo del juego. Los jugadores están separados por bosques impenetrables con solo uno o dos corredores estrechos. El meta es turtle (boom defensivo extremo) con Castles y Towers bloqueando los corredores. Las partidas pueden durar 1–2 horas. Los Onagers son cruciales para talar árboles y crear o cerrar caminos alternativos. Civs fuertes: Koreans, Turks, Byzantines.",
+    "verTambien": ["boom", "onager", "arena"],
+    "videoLink": null
+  },
+  "nomad": {
+    "termino": "Nomad",
+    "categoria": "mapa",
+    "definicionCorta": "Sin TC al inicio: hay que construirlo con los primeros villagers.",
+    "definicionLarga": "En Nomad, los jugadores empiezan con 3–4 villagers pero sin Town Center. El primer objetivo es explorar el mapa, encontrar una buena ubicación y construir el TC. Esto cambia completamente el meta: no hay fishing ships inmediatos, no hay garrisoning de seguridad, y la posición del TC es parte del juego. Civs con bonuses de TC o villagers extras (Chinese, Aztecs) son muy fuertes en Nomad.",
+    "verTambien": ["dark-age-eco", "tower-rush"],
+    "videoLink": null
+  },
+  "islands": {
+    "termino": "Islands",
+    "categoria": "mapa",
+    "definicionCorta": "Mapa de agua pura. El control naval es el factor decisivo.",
+    "definicionLarga": "Islands es el mapa de agua más jugado. Los jugadores empiezan en islas separadas y el control del mar determina si se puede llegar a la isla rival. El meta incluye Fishing Ships para comida (obligatorio), galleys en Feudal, y una eventual invasión con Transport Ships. Civs de agua como Vikings, Italians, Malay y Persians son dominantes en Islands.",
+    "verTambien": ["nomad", "team-islands"],
+    "videoLink": null
+  },
+  "hideout": {
+    "termino": "Hideout",
+    "categoria": "mapa",
+    "definicionCorta": "Mapa semi-abierto con bosques que protegen parcialmente el spawn.",
+    "definicionLarga": "Hideout es un mapa donde los jugadores spawnean en zonas parcialmente protegidas por bosques, pero con aperturas. Es más fácil wallear que Arabia pero más abierto que Arena. El meta mezcla elementos de ambos: FC es viable pero el flush también puede funcionar. Los recursos suelen estar bien posicionados dentro de la zona semi-protegida.",
+    "verTambien": ["arabia", "arena"],
+    "videoLink": null
+  },
+  "hill-fort": {
+    "termino": "Hill Fort",
+    "categoria": "mapa",
+    "definicionCorta": "Mapa donde los jugadores empiezan en colinas con ventaja defensiva.",
+    "definicionLarga": "Hill Fort es un mapa donde los jugadores empiezan en posiciones elevadas (colinas) que dan ventaja de disparo a las unidades en altura. Las flechas del TC y de las Torres hacen más daño desde arriba. El meta defensivo con Towers y Forward Castles es especialmente fuerte aquí. Civs con bonus defensivos o de torres (Byzantines, Koreans, Incas) aprovechan bien la topografía.",
+    "verTambien": ["tower-rush", "arena"],
+    "videoLink": null
+  },
+  "mongolia": {
+    "termino": "Mongolia",
+    "categoria": "mapa",
+    "definicionCorta": "Mapa semi-abierto con características de Arabia pero con más recursos centrales.",
+    "definicionLarga": "Mongolia es un mapa de estilo Arabia con algo más de recursos en el centro del mapa. El meta es similar a Arabia: flush agresivo o FC, con control del centro siendo más valioso que en Arabia estándar. Los recursos de gold y stone suelen estar más cerca del centro, lo que premia el control de mapa. Civs de alta movilidad como Mongols y Cumans son especialmente fuertes.",
+    "verTambien": ["arabia", "flush"],
+    "videoLink": null
+  },
+  "team-islands": {
+    "termino": "Team Islands",
+    "categoria": "mapa",
+    "definicionCorta": "Variante de Islands para Team Games: cada equipo en una isla compartida.",
+    "definicionLarga": "En Team Islands, cada equipo comparte una isla grande en lugar de estar en islas individuales. Esto hace que el early game sea diferente: hay colaboración en la isla propia y el combate naval sigue siendo el factor clave. Las civs de agua son aún más dominantes que en Islands individual. Las Fishing Ships son la mayor fuente de comida en este mapa.",
+    "verTambien": ["islands", "nomad"],
+    "videoLink": null
+  },
+  "bloodlines": {
+    "termino": "Bloodlines",
+    "categoria": "tecnologia",
+    "definicionCorta": "Tecnología Feudal en el Stable: +20 HP a toda la caballería.",
+    "definicionLarga": "Bloodlines es una de las tecnologías más impactantes del juego. Cuesta 150f/100g en el Stable y se investiga en Feudal Age. Da +20 HP a TODA la caballería (Scout Cavalry, Knights, Cavalry Archers). Esto es enorme: los Scouts suben de 45 HP a 65 HP (mucho más resistentes a las flechas del TC), los Knights van de 100 a 120 HP. Es obligatoria en cualquier build de scouts o caballería.",
+    "verTambien": ["husbandry", "cav", "knight"],
+    "videoLink": null
+  },
+  "husbandry": {
+    "termino": "Husbandry",
+    "categoria": "tecnologia",
+    "definicionCorta": "Tech del Stable en Castle Age: +10% velocidad de movimiento para caballería.",
+    "definicionLarga": "Husbandry da +10% de velocidad a toda la caballería. Los Knights pasan de 1.35 a 1.48 tiles/s, los Scouts de 1.55 a 1.71, y los Cavalry Archers de 1.4 a 1.54. Esta velocidad adicional mejora drásticamente la capacidad de raid (alcanzar villagers antes de que lleguen al TC) y la capacidad de escape de situaciones desfavorables. Se investiga en Castle Age en el Stable.",
+    "verTambien": ["bloodlines", "cav", "raid"],
+    "videoLink": null
+  },
+  "ballistics": {
+    "termino": "Ballistics",
+    "categoria": "tecnologia",
+    "definicionCorta": "Tech del University en Castle Age: las unidades de rango apuntan al movimiento previsto.",
+    "definicionLarga": "Ballistics hace que las unidades de rango (archers, towers, TCs, castles) calculen la trayectoria de los proyectiles hacia donde el objetivo VA A ESTAR, no donde está ahora. Esto elimina casi completamente las flechas desperdiciadas contra unidades en movimiento. El resultado es un aumento de DPS efectivo del 15–25% en combate. Es obligatoria para cualquier build de arqueros. Cuesta 175f/175g en University.",
+    "verTambien": ["xbow", "arb", "ca"],
+    "videoLink": null
+  },
+  "chemistry": {
+    "termino": "Chemistry",
+    "categoria": "tecnologia",
+    "definicionCorta": "Tech del University en Imperial: +1 ataque a todas las unidades de rango.",
+    "definicionLarga": "Chemistry da +1 de pierce attack a TODAS las unidades de rango (archers, siege, towers, etc.) y desbloquea Gunpowder units (Hand Cannoneers, Bombard Cannons, Bombard Towers). Es prácticamente obligatoria en Imperial Age. El +1 de ataque puede significar un golpe menos para matar ciertas unidades, cambiendo el RoF efectivo. Cuesta 300f/200g en University en Imperial Age.",
+    "verTambien": ["ballistics", "arb", "scorp"],
+    "videoLink": null
+  },
+  "conscription": {
+    "termino": "Conscription",
+    "categoria": "tecnologia",
+    "definicionCorta": "Tech del Castle en Imperial: +33% velocidad de producción de unidades militares.",
+    "definicionLarga": "Conscription reduce el tiempo de producción de todas las unidades militares en un 33%. En práctica: Archers pasan de 35s a ~23s, Knights de 30s a ~20s. En una batalla de desgaste donde ambos producen constantemente, Conscription puede ser el factor decisivo. Cuesta 150f/150g en el Castle. No afecta unidades de Dock ni Siege Workshop pero sí todas las demás (Barracks, Stable, Archery Range, Castle).",
+    "verTambien": ["timing-attack", "push"],
+    "videoLink": null
+  },
+  "hoardings": {
+    "termino": "Hoardings",
+    "categoria": "tecnologia",
+    "definicionCorta": "Unique Tech de Castle de los Celts: +1000 HP al Castillo.",
+    "definicionLarga": "Hoardings es la Unique Tech de Castle Age de los Celts. Añade 1000 HP al Castillo, llevándolo de 4800 HP base a 5800 HP. Hace que el Castillo de los Celts sea extremadamente difícil de destruir, especialmente combinado con Garrisoned units. Es una tech defensiva importante que alarga la vida del Castillo en timing attacks rivales.",
+    "verTambien": ["celts", "timing-attack"],
+    "videoLink": null
+  },
+  "crenellations": {
+    "termino": "Crenellations",
+    "categoria": "tecnologia",
+    "definicionCorta": "Unique Tech Imperial de los Teutons: los Castles tienen +3 de rango de flecha.",
+    "definicionLarga": "Crenellations es la Unique Tech Imperial de los Teutons. Da +3 de rango al Castillo (+1 rango más que el estándar) y permite que Barracks units (infantry) puedan garrisonarse en el Castillo y disparar flechas, a diferencia de otras civs donde solo los villagers pueden disparar desde dentro. En combinación con el bonus defensivo de los Teutons (Castles más baratos, +5 Garrison), crea un Castillo casi indestructible.",
+    "verTambien": ["teutons", "garrison"],
+    "videoLink": null
+  },
+  "pop": {
+    "termino": "Pop",
+    "categoria": "general",
+    "definicionCorta": "Population / Población. El límite de unidades simultáneas (máx 200 en RM).",
+    "definicionLarga": "El 'pop' (population) es el límite de unidades que un jugador puede tener en un momento dado. En Random Map estándar, el límite es 200. Cada villager, militar o boat ocupa 1 de pop. El pop cap se aumenta construyendo Houses (cada una da +5). Llegar al pop cap sin military significa que no podés producir más ejército: el 'smush' explota esto destruyendo houses del rival.",
+    "verTambien": ["smush", "villager-count"],
+    "videoLink": null
+  },
+  "ladder": {
+    "termino": "Ladder",
+    "categoria": "general",
+    "definicionCorta": "El sistema de juego rankeado 1v1 en voobly/Steam/AoE2.net.",
+    "definicionLarga": "El 'ladder' es el sistema de ranking competitivo de AoE2. Cada partida rankeada sube o baja tu ELO según el resultado y el ELO del rival. El ladder de Steam/AoE2 DE tiene su propio sistema de matchmaking. Los torneos como Red Bull Wololo o King of the Desert usan el ladder como referencia para invitar jugadores. 'Hacer ladder' significa jugar partidas rankeadas.",
+    "verTambien": ["elo", "smurf"],
+    "videoLink": null
+  },
+  "elo": {
+    "termino": "ELO",
+    "categoria": "general",
+    "definicionCorta": "Sistema de rating numérico que mide el nivel de un jugador en ladder.",
+    "definicionLarga": "ELO es el sistema de puntuación usado en el ladder de AoE2. Los nuevos jugadores empiezan en ~1000 ELO. Los pros de torneos tienen 2200–2500 ELO. La escala aproximada: <800 (principiante), 800–1200 (básico), 1200–1500 (intermedio), 1500–1800 (avanzado), 1800–2000 (experto), 2000+ (semi-pro/pro). El rating es relativo a la población de jugadores rankeados.",
+    "verTambien": ["ladder", "smurf"],
+    "videoLink": null
+  },
+  "smurf": {
+    "termino": "Smurf",
+    "categoria": "general",
+    "definicionCorta": "Cuenta secundaria con ELO artificialmente bajo para jugar contra rivales más débiles.",
+    "definicionLarga": "Un 'smurf' es una cuenta alternativa que un jugador experimentado usa para jugar en un bracket de ELO inferior al real. Es considerado una mala práctica porque arruina la experiencia de los jugadores que están aprendiendo. Algunos pros tienen cuentas smurf para probar estrategias sin arriesgar su ELO principal. AoE2 DE tiene sistemas de detección de smurfs pero no son perfectos.",
+    "verTambien": ["elo", "ladder"],
+    "videoLink": null
+  },
+  "1v1": {
+    "termino": "1v1",
+    "categoria": "general",
+    "definicionCorta": "Formato de partida uno contra uno. El formato competitivo estándar.",
+    "definicionLarga": "El formato 1v1 es la modalidad competitiva principal de AoE2. Pone a dos jugadores frente a frente sin aliados ni distracciones. La mayoría de los torneos (Red Bull Wololo, King of the Desert, Hidden Cup) usan 1v1 RM como formato principal. El 1v1 RM es el que más desarrolla las habilidades individuales: eco, micro, macro, scouting y adaptación.",
+    "verTambien": ["tg", "ladder", "elo"],
+    "videoLink": null
+  },
+  "tg": {
+    "termino": "TG",
+    "categoria": "general",
+    "definicionCorta": "Team Game. Partidas de 2v2, 3v3 o 4v4.",
+    "definicionLarga": "Los Team Games (TG) son partidas con múltiples jugadores por bando. El meta en TG es diferente al 1v1: se priorizan los 'team bonuses' de las civs, la coordinación entre aliados es clave, y el 'all-in' timing attacks son más efectivos porque un aliado puede cubrirte mientras atacas. El pocket (jugador central) vs flank (jugadores de los costados) tienen roles distintos.",
+    "verTambien": ["1v1", "ladder"],
+    "videoLink": null
+  },
+  "nr": {
+    "termino": "NR",
+    "categoria": "general",
+    "definicionCorta": "No Rush. Acuerdo informal de no atacar antes de cierto tiempo.",
+    "definicionLarga": "Un 'No Rush' (NR) es un acuerdo entre jugadores de no atacar antes de un tiempo establecido (típicamente NR15, NR20 o NR40). No está soportado por las reglas del juego sino por honor. Se usa principalmente en partidas casuales o en Team Games donde los jugadores quieren desarrollarse antes del combate. En ladder rankeado no existe el NR — atacar tan pronto como sea posible es parte del meta.",
+    "verTambien": ["boom", "fc", "tg"],
+    "videoLink": null
+  },
+  "gg": {
+    "termino": "GG",
+    "categoria": "general",
+    "definicionCorta": "Good Game. Expresión de reconocimiento y rendición al final de la partida.",
+    "definicionLarga": "GG ('Good Game') es la forma estándar de terminar una partida en AoE2. Cuando un jugador ve que va a perder, escribe 'GG' en el chat y se rinde. Es un gesto de deportividad. 'GG EZ' (good game, easy) es considerado unsportsmanlike. En partidas profesionales, el GG suele venir cuando el rival destruye el TC principal o cuando la diferencia económica es insalvable.",
+    "verTambien": ["ladder", "1v1"],
+    "videoLink": null
+  },
+  "scouting": {
+    "termino": "Scouting",
+    "categoria": "general",
+    "definicionCorta": "Explorar el mapa con el Scout para obtener información del rival y recursos.",
+    "definicionLarga": "El scouting es la habilidad de explorar el mapa sistemáticamente con el Scout desde Dark Age. Un buen scout en los primeros 2–3 min debe encontrar: todos los sheep (ovejas), los dos jabalíes, los ciervos, el gold y la stone propia, y empezar a ver la base rival para detectar su estrategia. Ver un Barracks del rival antes que una Range indica drush o MAA. Ver Range antes que Barracks indica archer rush.",
+    "verTambien": ["deer-push", "scouts-opening", "patrol"],
+    "videoLink": null
+  },
+  "timing-attack": {
+    "termino": "Timing Attack",
+    "categoria": "estrategia",
+    "definicionCorta": "Ataque calculado para golpear justo cuando el rival está más vulnerable.",
+    "definicionLarga": "Un timing attack es un ataque diseñado para llegar con máxima masa de unidades en el momento preciso en que el rival está más débil: cuando acaba de subir de edad (sin recursos), cuando está boomeando sin ejército, o cuando acaba de perder una pelea. El timing más famoso es el 'Castle Age timing': llegar a Castle con 6–8 knights antes de que el rival complete su eco boom.",
+    "verTambien": ["push", "all-in", "krush"],
+    "videoLink": null
+  }
+}

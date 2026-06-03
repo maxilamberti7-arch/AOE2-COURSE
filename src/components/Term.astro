@@ -1,0 +1,343 @@
+---
+/**
+ * Term.astro
+ * Renderiza un término del glosario con tooltip inline.
+ * Uso en .mdx:
+ *   import Term from '../../components/Term.astro';
+ *   El <Term slug="drush" /> ocurre cuando...
+ *
+ * Props:
+ *   slug: clave del objeto en glosario.json
+ */
+import glosario from '../data/glosario.json';
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const entry = (glosario as Record<string, any>)[slug];
+
+if (!entry) {
+  console.warn(`[Term] slug "${slug}" no encontrado en glosario.json`);
+}
+
+const tooltipId = `term-tt-${slug}`;
+const glosarioUrl = `/aoe2-curso/recursos/glosario/#${slug}`;
+---
+
+{entry ? (
+  <span
+    class="term-inline"
+    role="button"
+    tabindex="0"
+    aria-describedby={tooltipId}
+    data-slug={slug}
+  >
+    {entry.termino}
+    <span
+      id={tooltipId}
+      class="term-tooltip"
+      role="tooltip"
+      aria-live="polite"
+    >
+      <span class="term-tooltip-head">
+        <strong class="term-tooltip-name">{entry.termino}</strong>
+        <span class={`term-tooltip-cat cat-${entry.categoria}`}>{entry.categoria}</span>
+      </span>
+      <span class="term-tooltip-def">{entry.definicionCorta}</span>
+      <a href={glosarioUrl} class="term-tooltip-link">
+        Ver definición completa →
+      </a>
+    </span>
+  </span>
+) : (
+  <span class="term-inline term-missing" title={`Término "${slug}" no encontrado`}>
+    {slug}
+  </span>
+)}
+
+<style>
+/* ── Span base ──────────────────────────────────────────────── */
+.term-inline {
+  position: relative;
+  display: inline;
+  cursor: help;
+  border-bottom: 1.5px dashed rgba(212, 160, 23, 0.65);
+  color: inherit;
+  transition: border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.term-inline:hover,
+.term-inline:focus,
+.term-inline.is-open {
+  border-bottom-color: #d4a017;
+  color: #f0c040;
+  outline: none;
+}
+
+.term-missing {
+  border-bottom-color: rgba(239, 68, 68, 0.5);
+  cursor: help;
+}
+
+/* ── Tooltip ────────────────────────────────────────────────── */
+.term-tooltip {
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  width: 280px;
+  max-width: 90vw;
+  padding: 12px 16px;
+
+  background: #1a1a1a;
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  border-radius: 8px;
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(212,160,23,0.05);
+
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: #c8c8c8;
+
+  pointer-events: none;
+  white-space: normal;
+
+  /* Animación */
+  opacity: 0;
+  animation: none;
+}
+
+/* Flecha del tooltip */
+.term-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(212, 160, 23, 0.3);
+}
+
+.term-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #1a1a1a;
+  z-index: 1;
+}
+
+/* Mostrar tooltip */
+.term-inline:hover .term-tooltip,
+.term-inline:focus .term-tooltip,
+.term-inline.is-open .term-tooltip {
+  display: flex;
+  pointer-events: auto;
+  animation: tooltip-fade-in 0.15s ease both;
+}
+
+@keyframes tooltip-fade-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(4px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ── Contenido interno del tooltip ──────────────────────────── */
+.term-tooltip-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.term-tooltip-name {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #ededed;
+}
+
+.term-tooltip-cat {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Colores por categoría */
+.cat-estrategia  { background: rgba(212,160,23,0.15); color: #d4a017; border: 1px solid rgba(212,160,23,0.3); }
+.cat-economia    { background: rgba(74,222,128,0.1);  color: #4ade80; border: 1px solid rgba(74,222,128,0.3); }
+.cat-militar     { background: rgba(239,68,68,0.1);   color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
+.cat-unidad      { background: rgba(96,165,250,0.1);  color: #60a5fa; border: 1px solid rgba(96,165,250,0.3); }
+.cat-mapa        { background: rgba(167,139,250,0.1); color: #a78bfa; border: 1px solid rgba(167,139,250,0.3); }
+.cat-tecnologia  { background: rgba(251,146,60,0.1);  color: #fb923c; border: 1px solid rgba(251,146,60,0.3); }
+.cat-general     { background: rgba(156,163,175,0.1); color: #9ca3af; border: 1px solid rgba(156,163,175,0.3); }
+
+.term-tooltip-def {
+  font-size: 0.78rem;
+  color: #a1a1a1;
+  line-height: 1.55;
+}
+
+.term-tooltip-link {
+  font-size: 0.75rem;
+  color: rgba(212, 160, 23, 0.8);
+  text-decoration: none;
+  margin-top: 0.1rem;
+  transition: color 0.15s;
+}
+
+.term-tooltip-link:hover {
+  color: #d4a017;
+}
+
+/* ── Posición flip: abajo si no hay espacio arriba ──────────── */
+.term-inline.flip-down .term-tooltip {
+  bottom: auto;
+  top: calc(100% + 10px);
+}
+
+.term-inline.flip-down .term-tooltip::after {
+  top: auto;
+  bottom: 100%;
+  border-top-color: transparent;
+  border-bottom-color: rgba(212, 160, 23, 0.3);
+}
+
+.term-inline.flip-down .term-tooltip::before {
+  top: auto;
+  bottom: 100%;
+  border-top-color: transparent;
+  border-bottom-color: #1a1a1a;
+}
+
+/* ── Ajuste horizontal para no salirse del viewport ─────────── */
+.term-inline.align-left .term-tooltip {
+  left: 0;
+  transform: none;
+}
+
+.term-inline.align-left .term-tooltip::after,
+.term-inline.align-left .term-tooltip::before {
+  left: 20px;
+}
+
+.term-inline.align-right .term-tooltip {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+.term-inline.align-right .term-tooltip::after,
+.term-inline.align-right .term-tooltip::before {
+  left: auto;
+  right: 20px;
+}
+
+/* ── Mobile: deshabilitar hover, usar tap ──────────────────── */
+@media (hover: none) {
+  .term-inline:hover .term-tooltip {
+    display: none;
+  }
+  .term-inline.is-open .term-tooltip {
+    display: flex;
+  }
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .term-inline:hover .term-tooltip,
+  .term-inline:focus .term-tooltip,
+  .term-inline.is-open .term-tooltip {
+    animation: none;
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+}
+</style>
+
+<script>
+  // Posicionamiento smart + accesibilidad keyboard/mobile
+  function initTermTooltips() {
+    document.querySelectorAll<HTMLElement>('.term-inline').forEach(term => {
+      const tooltip = term.querySelector<HTMLElement>('.term-tooltip');
+      if (!tooltip) return;
+
+      function adjustPosition() {
+        const rect = term.getBoundingClientRect();
+        const tipWidth = 280;
+        const viewW = window.innerWidth;
+
+        // Flip vertical: si no hay espacio arriba, mostrar abajo
+        if (rect.top < 160) {
+          term.classList.add('flip-down');
+        } else {
+          term.classList.remove('flip-down');
+        }
+
+        // Ajuste horizontal
+        term.classList.remove('align-left', 'align-right');
+        const centerLeft = rect.left + rect.width / 2 - tipWidth / 2;
+        if (centerLeft < 8) {
+          term.classList.add('align-left');
+        } else if (centerLeft + tipWidth > viewW - 8) {
+          term.classList.add('align-right');
+        }
+      }
+
+      // Hover/focus desktop
+      term.addEventListener('mouseenter', adjustPosition);
+      term.addEventListener('focus', adjustPosition);
+
+      // Keyboard: Enter/Space abre, Escape cierra
+      term.addEventListener('keydown', (e: KeyboardEvent) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          adjustPosition();
+          term.classList.toggle('is-open');
+        }
+        if (e.key === 'Escape') {
+          term.classList.remove('is-open');
+          term.blur();
+        }
+      });
+
+      // Mobile tap
+      term.addEventListener('click', (e: Event) => {
+        const isMobile = !window.matchMedia('(hover: hover)').matches;
+        if (!isMobile) return;
+        e.stopPropagation();
+        adjustPosition();
+        term.classList.toggle('is-open');
+      });
+    });
+
+    // Cerrar tooltips móviles al tocar fuera
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.term-inline.is-open').forEach(el => {
+        el.classList.remove('is-open');
+      });
+    });
+  }
+
+  // Ejecutar cuando el DOM esté listo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTermTooltips);
+  } else {
+    initTermTooltips();
+  }
+</script>

@@ -1,0 +1,642 @@
+/* ============================================================
+   home.css — Estilos EXCLUSIVOS del home page
+   Cargado solo en index.mdx via frontmatter head.
+   NO afecta al resto del sitio.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+/* ── Reset secciones del home ──────────────────────────────── */
+.home-wrapper {
+  --gold:          #d4a017;
+  --gold-dim:      rgba(212, 160, 23, 0.15);
+  --gold-border:   rgba(212, 160, 23, 0.3);
+  --dark-bg:       #0a0a0a;
+  --dark-elevated: #111111;
+  --dark-card:     #141414;
+  --text-primary:  #ededed;
+  --text-secondary:#a1a1a1;
+  --text-muted:    #555555;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Ocultar el breadcrumb y sidebar en el home (template: splash ya lo hace) */
+.home-wrapper + * { display: none; }
+
+/* ── HERO ──────────────────────────────────────────────────── */
+.home-hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 2rem 8rem;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Fondo gradiente "atardecer sobre batalla" */
+.home-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 60%, #1a0f00 0%, transparent 70%),
+    radial-gradient(ellipse 80% 40% at 30% 80%, #2a1500 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 70% 20%, #0d0800 0%, transparent 50%),
+    linear-gradient(180deg, #000000 0%, #0d0800 40%, #1a0f00 70%, #0a0500 100%);
+  z-index: -2;
+}
+
+/* Textura grain SVG inline — sutil, no intrusiva */
+.home-hero::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  z-index: -1;
+  pointer-events: none;
+  animation: grain-shift 8s steps(2) infinite;
+}
+
+@keyframes grain-shift {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-3%, -5%); }
+  40%  { transform: translate(4%, 2%); }
+  60%  { transform: translate(-2%, 6%); }
+  80%  { transform: translate(5%, -3%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Línea horizontal decorativa arriba */
+.home-hero-rule {
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 2.5rem;
+}
+
+/* Logo / escudo SVG */
+.home-logo {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 2rem;
+  filter: drop-shadow(0 0 24px rgba(212, 160, 23, 0.4));
+  animation: logo-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes logo-glow {
+  from { filter: drop-shadow(0 0 16px rgba(212, 160, 23, 0.3)); }
+  to   { filter: drop-shadow(0 0 32px rgba(212, 160, 23, 0.6)); }
+}
+
+/* Título principal */
+.home-title {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: clamp(2.4rem, 7vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+  text-shadow:
+    0 0 60px rgba(212, 160, 23, 0.25),
+    0 2px 4px rgba(0,0,0,0.8);
+}
+
+/* Acento dorado en la primera palabra */
+.home-title-accent {
+  color: var(--gold);
+}
+
+/* Subtítulo */
+.home-subtitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin: 0.8rem auto 2.8rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+/* Badges de stats */
+.home-stats {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.home-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.home-stat-number {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.home-stat-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.home-stat-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--text-muted);
+  opacity: 0.3;
+  align-self: center;
+}
+
+/* Botones CTA */
+.home-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.home-btn-primary {
+  background: var(--gold);
+  color: #0a0a0a;
+  box-shadow: 0 0 20px rgba(212, 160, 23, 0.3);
+}
+
+.home-btn-primary:hover {
+  background: #f0c040;
+  box-shadow: 0 0 30px rgba(212, 160, 23, 0.5);
+  transform: translateY(-1px);
+  color: #0a0a0a;
+}
+
+.home-btn-secondary {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold-border);
+}
+
+.home-btn-secondary:hover {
+  background: var(--gold-dim);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+  color: var(--gold);
+}
+
+/* Scroll indicator */
+.home-scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: 'Inter', sans-serif;
+}
+
+.home-scroll-chevron {
+  animation: bounce-down 1.8s ease-in-out infinite;
+}
+
+@keyframes bounce-down {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50%       { transform: translateY(6px); opacity: 1; }
+}
+
+/* ── SECCIÓN: LOS CINCO NIVELES ─────────────────────────────── */
+.home-levels {
+  padding: 6rem 2rem;
+  background: var(--dark-bg);
+  position: relative;
+}
+
+.home-levels::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold-border) 50%, transparent 100%);
+}
+
+.home-section-label {
+  text-align: center;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.home-section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin: 0 0 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+.home-section-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  text-align: center;
+  margin: 0 auto 3.5rem;
+  max-width: 480px;
+}
+
+/* Grid de niveles */
+.home-levels-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .home-levels-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .home-levels-grid { grid-template-columns: 1fr; }
+}
+
+.home-level-card {
+  background: var(--dark-card);
+  border: 1px solid #1e1e1e;
+  border-radius: 12px;
+  padding: 1.6rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-level-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, var(--gold-dim), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.home-level-card:hover {
+  border-color: var(--gold-border);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(212, 160, 23, 0.1);
+}
+
+.home-level-card:hover::before {
+  opacity: 1;
+}
+
+.home-level-icon {
+  width: 48px;
+  height: 48px;
+  opacity: 0.9;
+}
+
+.home-level-elo {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--gold);
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  padding: 0.2rem 0.6rem;
+  letter-spacing: 0.06em;
+}
+
+.home-level-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.home-level-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.home-level-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: auto;
+  opacity: 0.7;
+  transition: opacity 0.2s, gap 0.2s;
+}
+
+.home-level-card:hover .home-level-link {
+  opacity: 1;
+  gap: 0.5rem;
+}
+
+/* ── SECCIÓN: QUÉ VAS A APRENDER ────────────────────────────── */
+.home-features {
+  padding: 6rem 2rem;
+  background: var(--dark-elevated);
+  position: relative;
+}
+
+.home-features::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold-border) 50%, transparent 100%);
+}
+
+/* Patrón de fondo sutil */
+.home-features-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%23d4a017' stroke-width='0.3' opacity='0.06'%3E%3Cpath d='M30 0v60M0 30h60'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.home-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media (max-width: 700px) {
+  .home-features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 420px) {
+  .home-features-grid { grid-template-columns: 1fr; }
+}
+
+.home-feature {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.4rem;
+  border-radius: 10px;
+  border: 1px solid #1a1a1a;
+  background: rgba(10,10,10,0.6);
+  transition: border-color 0.2s;
+}
+
+.home-feature:hover {
+  border-color: var(--gold-border);
+}
+
+.home-feature-icon {
+  width: 40px;
+  height: 40px;
+  opacity: 0.85;
+}
+
+.home-feature-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.home-feature-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── SECCIÓN: QUOTE ─────────────────────────────────────────── */
+.home-quote {
+  padding: 6rem 2rem;
+  background: var(--dark-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-quote::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold-border) 50%, transparent 100%);
+}
+
+.home-quote-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.home-quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 7rem;
+  line-height: 0.5;
+  color: var(--gold);
+  opacity: 0.25;
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.home-quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  margin: 0 0 1.5rem;
+}
+
+.home-quote-author {
+  font-size: 0.8rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+.home-quote-source {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+/* ── FOOTER DEL HOME ────────────────────────────────────────── */
+.home-footer {
+  background: #080808;
+  border-top: 1px solid #1a1a1a;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.home-footer-links {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.home-footer-link {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.home-footer-link:hover {
+  color: var(--gold);
+}
+
+.home-footer-divider {
+  width: 40px;
+  height: 1px;
+  background: #222;
+  margin: 1.2rem auto;
+}
+
+.home-footer-attr {
+  font-size: 0.72rem;
+  color: #333;
+  line-height: 1.7;
+}
+
+.home-footer-attr a {
+  color: #444;
+  text-decoration: none;
+}
+
+.home-footer-attr a:hover {
+  color: var(--text-muted);
+}
+
+.home-footer-disclaimer {
+  font-size: 0.68rem;
+  color: #2a2a2a;
+  max-width: 600px;
+  margin: 0.8rem auto 0;
+  line-height: 1.6;
+}
+
+/* ── Separadores decorativos ─────────────────────────────────── */
+.home-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 300px;
+  margin: 0 auto 3rem;
+}
+
+.home-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-border));
+}
+
+.home-divider-line:last-child {
+  background: linear-gradient(90deg, var(--gold-border), transparent);
+}
+
+.home-divider-icon {
+  color: var(--gold);
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
+/* ── Animaciones de entrada ─────────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  .home-hero > * {
+    animation: fade-up 0.7s ease both;
+  }
+  .home-logo      { animation-delay: 0.1s; }
+  .home-hero-rule { animation-delay: 0.05s; }
+  .home-title     { animation-delay: 0.2s; }
+  .home-subtitle  { animation-delay: 0.3s; }
+  .home-stats     { animation-delay: 0.4s; }
+  .home-cta       { animation-delay: 0.5s; }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ── Responsive ajustes ─────────────────────────────────────── */
+@media (max-width: 600px) {
+  .home-hero { padding: 5rem 1.5rem 7rem; }
+  .home-levels,
+  .home-features,
+  .home-quote { padding: 4rem 1.5rem; }
+  .home-stats { gap: 1rem; }
+  .home-stat-number { font-size: 1.2rem; }
+}

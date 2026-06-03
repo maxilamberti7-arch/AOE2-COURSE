@@ -1,0 +1,556 @@
+---
+/**
+ * GlosarioPage.astro
+ * Página completa del glosario con buscador en tiempo real,
+ * filtro por categoría, nav alfabética sticky y entradas completas.
+ */
+import glosarioRaw from '../data/glosario.json';
+
+// Cast una sola vez en el frontmatter para evitar generics en el template JSX
+const glosario = glosarioRaw as Record<string, any>;
+
+// Transformar a array ordenado alfabéticamente
+const entries = Object.entries(glosario)
+  .map(([slug, data]) => ({ slug, ...data }))
+  .sort((a, b) => a.termino.localeCompare(b.termino, 'es'));
+
+// Letras únicas disponibles
+const letters = [...new Set(entries.map(e => e.termino[0].toUpperCase()))].sort();
+
+// Categorías únicas
+const categorias = [...new Set(entries.map(e => e.categoria))].sort();
+
+const catColors: Record<string, string> = {
+  estrategia:  '#d4a017',
+  economia:    '#4ade80',
+  militar:     '#f87171',
+  unidad:      '#60a5fa',
+  mapa:        '#a78bfa',
+  tecnologia:  '#fb923c',
+  general:     '#9ca3af',
+};
+
+// Serializar datos para el JS del cliente
+const dataJSON = JSON.stringify(entries);
+---
+
+<div class="gloss-wrapper" data-entries={dataJSON}>
+
+  {/* Buscador + filtros */}
+  <div class="gloss-controls">
+    <div class="gloss-search-wrap">
+      <svg class="gloss-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input
+        type="search"
+        id="gloss-search"
+        class="gloss-search"
+        placeholder="Buscar término... (ej: drush, FC, knights)"
+        aria-label="Buscar en el glosario"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <kbd class="gloss-search-kbd">⌘K</kbd>
+    </div>
+
+    <div class="gloss-cats" role="group" aria-label="Filtrar por categoría">
+      <button class="gloss-cat-btn active" data-cat="all" aria-pressed="true">
+        Todas
+        <span class="gloss-cat-count">{entries.length}</span>
+      </button>
+      {categorias.map(cat => (
+        <button
+          class="gloss-cat-btn"
+          data-cat={cat}
+          aria-pressed="false"
+          style={`--cat-color: ${catColors[cat] || '#888'}`}
+        >
+          {cat}
+          <span class="gloss-cat-count">{entries.filter(e => e.categoria === cat).length}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div class="gloss-layout">
+
+    {/* Nav alfabética sticky */}
+    <nav class="gloss-alpha-nav" aria-label="Navegación alfabética">
+      {letters.map(letter => (
+        <a href={`#letra-${letter}`} class="gloss-alpha-link" data-letter={letter}>
+          {letter}
+        </a>
+      ))}
+    </nav>
+
+    {/* Lista de entradas */}
+    <div class="gloss-list" id="gloss-list" role="list">
+
+      {/* Renderizamos agrupado por primera letra */}
+      {letters.map(letter => {
+        const group = entries.filter(e => e.termino[0].toUpperCase() === letter);
+        return (
+          <div class="gloss-letter-group" data-letter-group={letter}>
+            <h2 class="gloss-letter-heading" id={`letra-${letter}`}>{letter}</h2>
+            {group.map(entry => (
+              <article
+                class="gloss-entry"
+                id={entry.slug}
+                data-cat={entry.categoria}
+                data-termino={entry.termino.toLowerCase()}
+                data-def={entry.definicionLarga?.toLowerCase() || ''}
+                role="listitem"
+              >
+                <header class="gloss-entry-header">
+                  <h3 class="gloss-entry-name">{entry.termino}</h3>
+                  <span
+                    class="gloss-entry-cat"
+                    style={`background: ${catColors[entry.categoria] || '#888'}22; color: ${catColors[entry.categoria] || '#888'}; border-color: ${catColors[entry.categoria] || '#888'}55;`}
+                  >
+                    {entry.categoria}
+                  </span>
+                </header>
+
+                <p class="gloss-entry-short">{entry.definicionCorta}</p>
+                <p class="gloss-entry-long">{entry.definicionLarga}</p>
+
+                {entry.verTambien && entry.verTambien.length > 0 && (
+                  <div class="gloss-entry-related">
+                    <span class="gloss-entry-related-label">Ver también:</span>
+                    {entry.verTambien.map((slug: string) => (
+                      <a href={`#${slug}`} class="gloss-entry-related-link">
+                        {glosario[slug]?.termino || slug}
+                      </a>
+                    ))}
+                  </div>
+                )}
+
+                {entry.videoLink && (
+                  <a href={entry.videoLink} target="_blank" rel="noopener" class="gloss-entry-video">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+                    Ver video explicativo
+                  </a>
+                )}
+              </article>
+            ))}
+          </div>
+        );
+      })}
+
+      {/* Estado vacío cuando no hay resultados */}
+      <div class="gloss-empty" id="gloss-empty" hidden>
+        <p>No se encontraron términos para "<strong id="gloss-empty-query"></strong>".</p>
+        <p class="gloss-empty-hint">Probá con: drush, FC, knights, Arabia, micro...</p>
+      </div>
+
+    </div>
+  </div>
+
+  <p class="gloss-total" id="gloss-total">{entries.length} términos en total</p>
+</div>
+
+<style>
+/* ── Variables locales ──────────────────────────────────────── */
+.gloss-wrapper {
+  --gold: #d4a017;
+  --gold-dim: rgba(212,160,23,0.12);
+  --gold-border: rgba(212,160,23,0.3);
+  --bg-card: #111111;
+  --border: #1e1e1e;
+  --text-muted: #6e6e6e;
+}
+
+/* ── Controls ────────────────────────────────────────────────── */
+.gloss-controls {
+  position: sticky;
+  top: var(--sl-nav-height, 3.5rem);
+  z-index: 100;
+  background: var(--sl-color-bg, #0a0a0a);
+  padding: 1rem 0 0.8rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.gloss-search-wrap {
+  position: relative;
+  margin-bottom: 0.8rem;
+}
+
+.gloss-search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.gloss-search {
+  width: 100%;
+  padding: 0.7rem 3rem 0.7rem 2.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--sl-color-white, #ededed);
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.gloss-search:focus {
+  border-color: var(--gold-border);
+  box-shadow: 0 0 0 2px rgba(212,160,23,0.1);
+}
+
+.gloss-search-kbd {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  pointer-events: none;
+}
+
+/* Categorías */
+.gloss-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.gloss-cat-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--sl-color-gray-2, #a1a1a1);
+  font-size: 0.75rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.gloss-cat-btn:hover {
+  border-color: var(--cat-color, var(--gold-border));
+  color: var(--cat-color, var(--gold));
+  background: rgba(255,255,255,0.03);
+}
+
+.gloss-cat-btn.active {
+  background: var(--cat-color, var(--gold-dim));
+  border-color: var(--cat-color, var(--gold-border));
+  color: var(--cat-color, var(--gold));
+}
+
+.gloss-cat-btn.active[data-cat="all"] {
+  background: var(--gold-dim);
+  border-color: var(--gold-border);
+  color: var(--gold);
+}
+
+.gloss-cat-count {
+  font-size: 0.65rem;
+  background: rgba(255,255,255,0.08);
+  padding: 0.1rem 0.4rem;
+  border-radius: 10px;
+}
+
+/* ── Layout ──────────────────────────────────────────────────── */
+.gloss-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* Nav alfabética */
+.gloss-alpha-nav {
+  position: sticky;
+  top: calc(var(--sl-nav-height, 3.5rem) + 8rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex-shrink: 0;
+  width: 28px;
+}
+
+@media (max-width: 768px) {
+  .gloss-alpha-nav { display: none; }
+}
+
+.gloss-alpha-link {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 0.15rem 0;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: color 0.15s, background 0.15s;
+}
+
+.gloss-alpha-link:hover,
+.gloss-alpha-link.is-active {
+  color: var(--gold);
+  background: var(--gold-dim);
+}
+
+/* ── Lista de entradas ──────────────────────────────────────── */
+.gloss-list {
+  flex: 1;
+  min-width: 0;
+}
+
+.gloss-letter-heading {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--gold-border);
+  margin: 2.5rem 0 1rem;
+  scroll-margin-top: calc(var(--sl-nav-height, 3.5rem) + 8rem);
+}
+
+.gloss-letter-heading:first-child {
+  margin-top: 0;
+}
+
+/* Entrada del glosario */
+.gloss-entry {
+  padding: 1.2rem 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-card);
+  margin-bottom: 0.8rem;
+  scroll-margin-top: calc(var(--sl-nav-height, 3.5rem) + 8rem);
+  transition: border-color 0.15s;
+}
+
+.gloss-entry:target {
+  border-color: var(--gold-border);
+  box-shadow: 0 0 0 1px rgba(212,160,23,0.1);
+}
+
+.gloss-entry-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.gloss-entry-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--sl-color-white, #ededed);
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+.gloss-entry-cat {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 600;
+  padding: 0.18rem 0.55rem;
+  border-radius: 4px;
+  border: 1px solid;
+}
+
+.gloss-entry-short {
+  font-size: 0.85rem;
+  color: var(--sl-color-gray-1, #c8c8c8);
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+}
+
+.gloss-entry-long {
+  font-size: 0.82rem;
+  color: var(--sl-color-gray-2, #a1a1a1);
+  line-height: 1.65;
+  margin: 0 0 0.75rem;
+}
+
+.gloss-entry-related {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+}
+
+.gloss-entry-related-label {
+  color: var(--text-muted);
+}
+
+.gloss-entry-related-link {
+  color: var(--gold);
+  text-decoration: none;
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  padding: 0.1rem 0.45rem;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+.gloss-entry-related-link:hover {
+  background: rgba(212,160,23,0.25);
+}
+
+.gloss-entry-video {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--gold);
+  text-decoration: none;
+  margin-top: 0.5rem;
+  opacity: 0.8;
+  transition: opacity 0.15s;
+}
+
+.gloss-entry-video:hover { opacity: 1; }
+
+/* Estado vacío */
+.gloss-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--sl-color-gray-2, #a1a1a1);
+}
+
+.gloss-empty-hint {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Total */
+.gloss-total {
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Ocultar entradas filtradas */
+.gloss-entry[hidden],
+.gloss-letter-group[hidden] {
+  display: none;
+}
+</style>
+
+<script>
+  (function () {
+    const wrapper = document.querySelector<HTMLElement>('.gloss-wrapper');
+    if (!wrapper) return;
+
+    const searchInput = document.getElementById('gloss-search') as HTMLInputElement;
+    const catButtons  = document.querySelectorAll<HTMLButtonElement>('.gloss-cat-btn');
+    const entries     = document.querySelectorAll<HTMLElement>('.gloss-entry');
+    const letterGroups = document.querySelectorAll<HTMLElement>('.gloss-letter-group');
+    const emptyState  = document.getElementById('gloss-empty')!;
+    const emptyQuery  = document.getElementById('gloss-empty-query')!;
+    const totalLabel  = document.getElementById('gloss-total')!;
+    const alphaLinks  = document.querySelectorAll<HTMLAnchorElement>('.gloss-alpha-link');
+
+    let activeCategory = 'all';
+    let searchQuery = '';
+
+    function filterEntries() {
+      let visible = 0;
+
+      entries.forEach(entry => {
+        const cat   = entry.dataset.cat || '';
+        const term  = entry.dataset.termino || '';
+        const def   = entry.dataset.def || '';
+
+        const catMatch = activeCategory === 'all' || cat === activeCategory;
+        const q        = searchQuery.toLowerCase();
+        const qMatch   = !q || term.includes(q) || def.includes(q);
+
+        const show = catMatch && qMatch;
+        entry.hidden = !show;
+        if (show) visible++;
+      });
+
+      // Ocultar grupos de letra vacíos
+      letterGroups.forEach(group => {
+        const visibleInGroup = [...group.querySelectorAll<HTMLElement>('.gloss-entry')]
+          .some(e => !e.hidden);
+        group.hidden = !visibleInGroup;
+      });
+
+      // Estado vacío
+      if (visible === 0) {
+        emptyState.hidden = false;
+        emptyQuery.textContent = searchQuery || activeCategory;
+      } else {
+        emptyState.hidden = true;
+      }
+
+      // Actualizar nav alfabética
+      alphaLinks.forEach(link => {
+        const letter = link.dataset.letter!;
+        const group = document.querySelector<HTMLElement>(`[data-letter-group="${letter}"]`);
+        link.classList.toggle('is-active', !!(group && !group.hidden));
+      });
+
+      totalLabel.textContent = `${visible} ${visible === 1 ? 'término' : 'términos'} mostrados`;
+    }
+
+    // Buscador
+    searchInput?.addEventListener('input', () => {
+      searchQuery = searchInput.value.trim();
+      filterEntries();
+    });
+
+    // Atajos de teclado
+    document.addEventListener('keydown', e => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        searchInput?.focus();
+        searchInput?.select();
+      }
+    });
+
+    // Filtros de categoría
+    catButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeCategory = btn.dataset.cat || 'all';
+        catButtons.forEach(b => {
+          b.classList.toggle('active', b === btn);
+          b.setAttribute('aria-pressed', String(b === btn));
+        });
+        filterEntries();
+      });
+    });
+
+    // Highlight de letra activa al hacer scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          const letter = id.replace('letra-', '');
+          alphaLinks.forEach(l => l.classList.toggle('is-active', l.dataset.letter === letter));
+        }
+      });
+    }, { rootMargin: '-10% 0px -80% 0px' });
+
+    document.querySelectorAll('.gloss-letter-heading').forEach(h => observer.observe(h));
+  })();
+</script>

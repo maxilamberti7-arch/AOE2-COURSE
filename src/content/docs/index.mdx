@@ -1,0 +1,380 @@
+---
+title: AoE2 DE — Curso Completo
+description: De cero a 1800+ ELO en Age of Empires II Definitive Edition. Guías, build orders, civilizaciones y estrategia.
+template: splash
+hero:
+  tagline: ''
+head:
+  - tag: link
+    attrs:
+      rel: stylesheet
+      href: /aoe2-curso/home.css
+  - tag: link
+    attrs:
+      rel: preconnect
+      href: https://fonts.googleapis.com
+  - tag: link
+    attrs:
+      rel: preconnect
+      href: https://fonts.gstatic.com
+      crossorigin: ''
+---
+
+<div class="home-wrapper">
+
+{/* ══════════════════════════════════════════════════════════
+    HERO
+══════════════════════════════════════════════════════════ */}
+<section class="home-hero">
+  <div class="home-hero-rule"></div>
+
+  {/* Logo: escudo heráldico con espadas cruzadas — SVG inline geométrico */}
+  <svg class="home-logo" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Escudo con espadas del curso AoE2">
+    {/* Espada izquierda */}
+    <line x1="22" y1="95" x2="78" y2="25" stroke="#d4a017" stroke-width="3.5" stroke-linecap="round" opacity="0.7"/>
+    <rect x="18" y="91" width="12" height="4" rx="1" fill="#d4a017" opacity="0.7" transform="rotate(-52 24 93)"/>
+    <circle cx="22" cy="98" r="3" fill="#d4a017" opacity="0.6"/>
+    {/* Espada derecha */}
+    <line x1="78" y1="95" x2="22" y2="25" stroke="#d4a017" stroke-width="3.5" stroke-linecap="round" opacity="0.7"/>
+    <rect x="70" y="91" width="12" height="4" rx="1" fill="#d4a017" opacity="0.7" transform="rotate(52 76 93)"/>
+    <circle cx="78" cy="98" r="3" fill="#d4a017" opacity="0.6"/>
+    {/* Escudo */}
+    <path d="M50 8 L86 24 L86 58 Q86 82 50 102 Q14 82 14 58 L14 24 Z"
+      fill="#0f0f0f" stroke="#d4a017" stroke-width="2.5"/>
+    {/* Borde interior del escudo */}
+    <path d="M50 16 L80 30 L80 57 Q80 78 50 95 Q20 78 20 57 L20 30 Z"
+      fill="none" stroke="#d4a017" stroke-width="1" opacity="0.35"/>
+    {/* Motivo central: diamante */}
+    <path d="M50 36 L60 50 L50 64 L40 50 Z" fill="#d4a017" opacity="0.9"/>
+    <path d="M50 42 L55 50 L50 58 L45 50 Z" fill="#0f0f0f"/>
+  </svg>
+
+  <h1 class="home-title">
+    <span class="home-title-accent">El Camino</span><br/>del Estratega
+  </h1>
+
+  <p class="home-subtitle">
+    Un curso completo para dominar Age of Empires II: Definitive Edition,<br/>
+    de novato a profesional.
+  </p>
+
+  <div class="home-stats">
+    <div class="home-stat">
+      <span class="home-stat-number">82</span>
+      <span class="home-stat-label">Lecciones</span>
+    </div>
+    <div class="home-stat-divider"></div>
+    <div class="home-stat">
+      <span class="home-stat-number">48</span>
+      <span class="home-stat-label">Civilizaciones</span>
+    </div>
+    <div class="home-stat-divider"></div>
+    <div class="home-stat">
+      <span class="home-stat-number">78</span>
+      <span class="home-stat-label">Términos</span>
+    </div>
+    <div class="home-stat-divider"></div>
+    <div class="home-stat">
+      <span class="home-stat-number">1800+</span>
+      <span class="home-stat-label">ELO objetivo</span>
+    </div>
+  </div>
+
+  <div class="home-cta">
+    <a href="/aoe2-curso/00-fundamentos/01-interfaz-y-hotkeys/" class="home-btn home-btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5,3 19,12 5,21"/></svg>
+      Comenzar el Curso
+    </a>
+    <a href="/aoe2-curso/civilizaciones/" class="home-btn home-btn-secondary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      Ver Civilizaciones
+    </a>
+  </div>
+
+  <div class="home-scroll-indicator" aria-hidden="true">
+    <span>Explorar</span>
+    <svg class="home-scroll-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,9 12,15 18,9"/></svg>
+  </div>
+</section>
+
+{/* ══════════════════════════════════════════════════════════
+    LOS CINCO NIVELES DEL ESTRATEGA
+══════════════════════════════════════════════════════════ */}
+<section class="home-levels">
+  <p class="home-section-label">Ruta de aprendizaje</p>
+  <h2 class="home-section-title">Los Cinco Niveles del Estratega</h2>
+  <p class="home-section-sub">Cada nivel es un escalón hacia el juego de alto nivel.</p>
+
+  <div class="home-divider">
+    <div class="home-divider-line"></div>
+    <span class="home-divider-icon">⚔</span>
+    <div class="home-divider-line"></div>
+  </div>
+
+  <div class="home-levels-grid">
+
+    {/* Fundamentos */}
+    <a href="/aoe2-curso/00-fundamentos/01-interfaz-y-hotkeys/" class="home-level-card">
+      <svg class="home-level-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        {/* Icono: aldeano con hacha */}
+        <circle cx="50" cy="28" r="14" fill="#d4a017" opacity="0.85"/>
+        <rect x="38" y="44" width="24" height="32" rx="4" fill="#d4a017" opacity="0.7"/>
+        <rect x="62" y="38" width="6" height="24" rx="2" fill="#a07810" opacity="0.8"/>
+        <path d="M62 38 Q74 34 74 44 Q74 54 62 50 Z" fill="#d4a017" opacity="0.9"/>
+      </svg>
+      <span class="home-level-elo">0 ELO</span>
+      <span class="home-level-name">Fundamentos</span>
+      <p class="home-level-desc">Interfaz, hotkeys, recursos y las cuatro edades. La base que todo estratega necesita.</p>
+      <span class="home-level-link">Comenzar →</span>
+    </a>
+
+    {/* Básico */}
+    <a href="/aoe2-curso/01-nivel-basico/01-build-order-scouts-feudal/" class="home-level-card">
+      <svg class="home-level-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        {/* Icono: arquero */}
+        <circle cx="50" cy="25" r="12" fill="#d4a017" opacity="0.85"/>
+        <line x1="24" y1="50" x2="76" y2="50" stroke="#d4a017" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+        <line x1="50" y1="50" x2="50" y2="20" stroke="#d4a017" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+        <polygon points="50,14 46,22 50,20 54,22" fill="#d4a017" opacity="0.9"/>
+        <rect x="42" y="40" width="16" height="28" rx="3" fill="#d4a017" opacity="0.65"/>
+        <line x1="42" y1="70" x2="38" y2="86" stroke="#d4a017" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+        <line x1="58" y1="70" x2="62" y2="86" stroke="#d4a017" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+      </svg>
+      <span class="home-level-elo">→ 1000 ELO</span>
+      <span class="home-level-name">Nivel Básico</span>
+      <p class="home-level-desc">Build orders, scouting y economía balanceada. Construí los hábitos correctos desde el inicio.</p>
+      <span class="home-level-link">Comenzar →</span>
+    </a>
+
+    {/* Intermedio */}
+    <a href="/aoe2-curso/02-nivel-intermedio/01-build-orders-archers-maa-drush/" class="home-level-card">
+      <svg class="home-level-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        {/* Icono: caballero con escudo */}
+        <circle cx="50" cy="22" r="13" fill="#d4a017" opacity="0.85"/>
+        <rect x="38" y="37" width="22" height="30" rx="3" fill="#d4a017" opacity="0.7"/>
+        {/* Escudo */}
+        <path d="M22 42 L34 36 L34 58 Q34 66 28 70 Q22 66 22 58 Z" fill="#d4a017" opacity="0.85"/>
+        {/* Lanza */}
+        <line x1="68" y1="30" x2="80" y2="90" stroke="#d4a017" stroke-width="3.5" stroke-linecap="round" opacity="0.7"/>
+        <polygon points="68,30 64,40 72,38" fill="#d4a017" opacity="0.9"/>
+        <line x1="38" y1="68" x2="34" y2="88" stroke="#d4a017" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+        <line x1="60" y1="68" x2="64" y2="88" stroke="#d4a017" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+      </svg>
+      <span class="home-level-elo">1000–1400</span>
+      <span class="home-level-name">Intermedio</span>
+      <p class="home-level-desc">Drush, control de mapa, walling, Castle Age y composiciones de unidades.</p>
+      <span class="home-level-link">Comenzar →</span>
+    </a>
+
+    {/* Avanzado */}
+    <a href="/aoe2-curso/03-nivel-avanzado/01-micro-management/" class="home-level-card">
+      <svg class="home-level-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        {/* Icono: torre de castillo */}
+        <rect x="30" y="40" width="40" height="52" rx="2" fill="#d4a017" opacity="0.75"/>
+        {/* Almenas */}
+        <rect x="30" y="30" width="8" height="14" rx="1" fill="#d4a017" opacity="0.85"/>
+        <rect x="42" y="28" width="8" height="16" rx="1" fill="#d4a017" opacity="0.9"/>
+        <rect x="54" y="28" width="8" height="16" rx="1" fill="#d4a017" opacity="0.9"/>
+        <rect x="62" y="30" width="8" height="14" rx="1" fill="#d4a017" opacity="0.85"/>
+        {/* Puerta */}
+        <path d="M44 92 L44 72 Q44 64 50 64 Q56 64 56 72 L56 92 Z" fill="#0f0f0f"/>
+        {/* Ventanas */}
+        <rect x="35" y="50" width="8" height="10" rx="2" fill="#0f0f0f"/>
+        <rect x="57" y="50" width="8" height="10" rx="2" fill="#0f0f0f"/>
+      </svg>
+      <span class="home-level-elo">1400–1700</span>
+      <span class="home-level-name">Avanzado</span>
+      <p class="home-level-desc">Micro, APM, timing attacks e Imperial Age. Donde los buenos se vuelven grandes.</p>
+      <span class="home-level-link">Comenzar →</span>
+    </a>
+
+    {/* Experto */}
+    <a href="/aoe2-curso/04-nivel-experto/01-lectura-de-partida-y-adaptacion/" class="home-level-card">
+      <svg class="home-level-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        {/* Icono: corona */}
+        <path d="M15 70 L15 50 L30 65 L50 30 L70 65 L85 50 L85 70 Z" fill="#d4a017" opacity="0.9"/>
+        <rect x="15" y="70" width="70" height="12" rx="3" fill="#d4a017" opacity="0.8"/>
+        {/* Gemas */}
+        <circle cx="50" cy="42" r="5" fill="#fff" opacity="0.9"/>
+        <circle cx="50" cy="42" r="3" fill="#d4a017"/>
+        <circle cx="26" cy="60" r="3.5" fill="#fff" opacity="0.8"/>
+        <circle cx="74" cy="60" r="3.5" fill="#fff" opacity="0.8"/>
+      </svg>
+      <span class="home-level-elo">1700+ ELO</span>
+      <span class="home-level-name">Experto</span>
+      <p class="home-level-desc">Lectura de partida, meta builds, mapas específicos y análisis de replays pro.</p>
+      <span class="home-level-link">Comenzar →</span>
+    </a>
+
+  </div>
+</section>
+
+{/* ══════════════════════════════════════════════════════════
+    QUÉ VAS A APRENDER
+══════════════════════════════════════════════════════════ */}
+<section class="home-features">
+  <div class="home-features-bg" aria-hidden="true"></div>
+
+  <p class="home-section-label">Contenido del curso</p>
+  <h2 class="home-section-title">¿Qué Vas a Aprender?</h2>
+  <p class="home-section-sub">Todo lo que un jugador competitivo necesita saber.</p>
+
+  <div class="home-divider">
+    <div class="home-divider-line"></div>
+    <span class="home-divider-icon">🛡</span>
+    <div class="home-divider-line"></div>
+  </div>
+
+  <div class="home-features-grid">
+
+    <div class="home-feature">
+      <svg class="home-feature-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        {/* Pergamino */}
+        <rect x="16" y="12" width="48" height="56" rx="4" fill="#d4a017" opacity="0.2" stroke="#d4a017" stroke-width="1.5" opacity="0.5"/>
+        <line x1="24" y1="28" x2="56" y2="28" stroke="#d4a017" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+        <line x1="24" y1="38" x2="56" y2="38" stroke="#d4a017" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+        <line x1="24" y1="48" x2="44" y2="48" stroke="#d4a017" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        <rect x="16" y="12" width="8" height="56" rx="4" fill="#d4a017" opacity="0.15"/>
+      </svg>
+      <div class="home-feature-title">Build Orders Óptimos</div>
+      <p class="home-feature-desc">Scouts, archers, MAA, FC, drush y más. Paso a paso, ejecutable desde el primer intento.</p>
+    </div>
+
+    <div class="home-feature">
+      <svg class="home-feature-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        {/* Espadas cruzadas */}
+        <line x1="16" y1="64" x2="64" y2="16" stroke="#d4a017" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+        <line x1="64" y1="64" x2="16" y2="16" stroke="#d4a017" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+        <rect x="12" y="60" width="10" height="3.5" rx="1" fill="#d4a017" opacity="0.8" transform="rotate(-45 17 62)"/>
+        <rect x="58" y="60" width="10" height="3.5" rx="1" fill="#d4a017" opacity="0.8" transform="rotate(45 63 62)"/>
+      </svg>
+      <div class="home-feature-title">Contra-unidades y Matchups</div>
+      <p class="home-feature-desc">Matriz completa de counters. Sabé siempre qué producir contra cada composición rival.</p>
+    </div>
+
+    <div class="home-feature">
+      <svg class="home-feature-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        {/* Bandera/estandarte */}
+        <line x1="20" y1="12" x2="20" y2="72" stroke="#d4a017" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+        <path d="M20 12 L60 22 L20 38 Z" fill="#d4a017" opacity="0.85"/>
+        <circle cx="20" cy="72" r="4" fill="#d4a017" opacity="0.6"/>
+      </svg>
+      <div class="home-feature-title">48 Civilizaciones</div>
+      <p class="home-feature-desc">Fichas detalladas con bonus, UU, UT, build orders óptimos y tier en cada mapa.</p>
+    </div>
+
+    <div class="home-feature">
+      <svg class="home-feature-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        {/* Mapa con marcador */}
+        <rect x="12" y="18" width="56" height="44" rx="4" fill="#d4a017" opacity="0.15" stroke="#d4a017" stroke-width="1.5" opacity="0.5"/>
+        <line x1="12" y1="36" x2="68" y2="36" stroke="#d4a017" stroke-width="1" opacity="0.3"/>
+        <line x1="36" y1="18" x2="36" y2="62" stroke="#d4a017" stroke-width="1" opacity="0.3"/>
+        <circle cx="48" cy="46" r="7" fill="#d4a017" opacity="0.8"/>
+        <circle cx="48" cy="46" r="3" fill="#0f0f0f"/>
+        <line x1="48" y1="40" x2="48" y2="14" stroke="#d4a017" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+      </svg>
+      <div class="home-feature-title">Casos Prácticos Reales</div>
+      <p class="home-feature-desc">Situaciones concretas de partida con decisiones explicadas. Aprendé analizando escenarios.</p>
+    </div>
+
+    <div class="home-feature">
+      <svg class="home-feature-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        {/* Corona simplificada */}
+        <path d="M14 58 L14 42 L26 54 L40 24 L54 54 L66 42 L66 58 Z" fill="#d4a017" opacity="0.85"/>
+        <rect x="14" y="58" width="52" height="10" rx="2" fill="#d4a017" opacity="0.7"/>
+        <circle cx="40" cy="34" r="4" fill="#fff" opacity="0.9"/>
+      </svg>
+      <div class="home-feature-title">Videos de Pros</div>
+      <p class="home-feature-desc">Referencias a Hera, T90, Spirit of the Law y más. Los mejores contenidos verificados.</p>
+    </div>
+
+    <div class="home-feature">
+      <svg class="home-feature-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        {/* Libro abierto */}
+        <path d="M8 20 Q8 14 16 14 L40 18 L40 66 Q32 62 16 62 Q8 62 8 56 Z" fill="#d4a017" opacity="0.2" stroke="#d4a017" stroke-width="1.5" opacity="0.6"/>
+        <path d="M72 20 Q72 14 64 14 L40 18 L40 66 Q48 62 64 62 Q72 62 72 56 Z" fill="#d4a017" opacity="0.2" stroke="#d4a017" stroke-width="1.5" opacity="0.6"/>
+        <line x1="40" y1="18" x2="40" y2="66" stroke="#d4a017" stroke-width="2" opacity="0.5"/>
+        <line x1="16" y1="32" x2="36" y2="32" stroke="#d4a017" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+        <line x1="16" y1="40" x2="36" y2="40" stroke="#d4a017" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+        <line x1="44" y1="32" x2="64" y2="32" stroke="#d4a017" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+        <line x1="44" y1="40" x2="64" y2="40" stroke="#d4a017" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+      </svg>
+      <div class="home-feature-title">Glosario Técnico</div>
+      <p class="home-feature-desc">78 términos con definiciones completas. FC, drush, idle TC, kiting — todo explicado.</p>
+    </div>
+
+  </div>
+</section>
+
+{/* ══════════════════════════════════════════════════════════
+    QUOTE
+══════════════════════════════════════════════════════════ */}
+<section class="home-quote">
+  <div class="home-quote-inner">
+    <div class="home-quote-mark" aria-hidden="true">"</div>
+    <blockquote>
+      <p class="home-quote-text">
+        "El scouting no es opcional. En los primeros tres minutos ya sabés
+        si tu rival hace archers, scouts o drush. La información es la
+        diferencia entre reaccionar bien y morir sin entender por qué."
+      </p>
+      <footer>
+        <p class="home-quote-author">Hera (T-West)</p>
+        <p class="home-quote-source">Top-5 mundial, múltiple campeón Red Bull Wololo</p>
+      </footer>
+    </blockquote>
+  </div>
+</section>
+
+{/* ══════════════════════════════════════════════════════════
+    TABLA ELO → MÓDULO
+══════════════════════════════════════════════════════════ */}
+<section class="home-levels" style="padding-top: 4rem; padding-bottom: 4rem;">
+  <p class="home-section-label">Navegación directa</p>
+  <h2 class="home-section-title">¿Por Dónde Empezás?</h2>
+
+  <div style="max-width: 600px; margin: 2rem auto 0; overflow-x: auto;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+      <thead>
+        <tr style="border-bottom: 1px solid rgba(212,160,23,0.3);">
+          <th style="text-align: left; padding: 0.7rem 1rem; color: #d4a017; font-family: 'Cinzel',serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">Tu ELO</th>
+          <th style="text-align: left; padding: 0.7rem 1rem; color: #d4a017; font-family: 'Cinzel',serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">Módulo recomendado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid #1a1a1a;"><td style="padding: 0.65rem 1rem; color: #a1a1a1;">Nuevo / sin cuenta</td><td style="padding: 0.65rem 1rem;"><a href="/aoe2-curso/00-fundamentos/01-interfaz-y-hotkeys/" style="color: #d4a017; text-decoration: none; font-weight: 500;">00 — Fundamentos →</a></td></tr>
+        <tr style="border-bottom: 1px solid #1a1a1a;"><td style="padding: 0.65rem 1rem; color: #a1a1a1;">Menos de 600 ELO</td><td style="padding: 0.65rem 1rem;"><a href="/aoe2-curso/01-nivel-basico/01-build-order-scouts-feudal/" style="color: #d4a017; text-decoration: none; font-weight: 500;">01 — Nivel Básico →</a></td></tr>
+        <tr style="border-bottom: 1px solid #1a1a1a;"><td style="padding: 0.65rem 1rem; color: #a1a1a1;">600–1000 ELO</td><td style="padding: 0.65rem 1rem;"><a href="/aoe2-curso/02-nivel-intermedio/01-build-orders-archers-maa-drush/" style="color: #d4a017; text-decoration: none; font-weight: 500;">02 — Nivel Intermedio →</a></td></tr>
+        <tr style="border-bottom: 1px solid #1a1a1a;"><td style="padding: 0.65rem 1rem; color: #a1a1a1;">1000–1400 ELO</td><td style="padding: 0.65rem 1rem;"><a href="/aoe2-curso/03-nivel-avanzado/01-micro-management/" style="color: #d4a017; text-decoration: none; font-weight: 500;">03 — Nivel Avanzado →</a></td></tr>
+        <tr><td style="padding: 0.65rem 1rem; color: #a1a1a1;">1400+ ELO</td><td style="padding: 0.65rem 1rem;"><a href="/aoe2-curso/04-nivel-experto/01-lectura-de-partida-y-adaptacion/" style="color: #d4a017; text-decoration: none; font-weight: 500;">04 — Nivel Experto →</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{/* ══════════════════════════════════════════════════════════
+    FOOTER
+══════════════════════════════════════════════════════════ */}
+<footer class="home-footer">
+  <div class="home-footer-links">
+    <a href="https://aoestats.io" target="_blank" rel="noopener" class="home-footer-link">aoestats.io</a>
+    <a href="https://www.youtube.com/@HeraaAoE" target="_blank" rel="noopener" class="home-footer-link">Canal de Hera</a>
+    <a href="https://www.youtube.com/@T90Official" target="_blank" rel="noopener" class="home-footer-link">T90Official</a>
+    <a href="https://www.youtube.com/@SpiritOfTheLaw" target="_blank" rel="noopener" class="home-footer-link">Spirit of the Law</a>
+    <a href="/aoe2-curso/recursos/glosario/" class="home-footer-link">Glosario completo</a>
+  </div>
+
+  <div class="home-footer-divider"></div>
+
+  <p class="home-footer-attr">
+    Iconos SVG del home creados para este proyecto bajo dominio público.<br/>
+    Inspirados en el estilo de <a href="https://game-icons.net" target="_blank" rel="noopener">game-icons.net</a> (Lorc, Delapouite &amp; contributors, <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>).
+  </p>
+
+  <p class="home-footer-disclaimer">
+    Sitio educativo no oficial. Age of Empires II: Definitive Edition es una marca registrada
+    de Microsoft Corporation. Este proyecto no está afiliado ni endosado por Microsoft.
+  </p>
+</footer>
+
+</div>
